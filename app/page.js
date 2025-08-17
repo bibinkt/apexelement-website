@@ -365,7 +365,7 @@ export default function Home() {
       {/* Footer */}
       <footer>
         <div className="footer-content">
-          <p>&copy; 2024 ApexElement. All rights reserved. | Empowering businesses with AI</p>
+          <p>&copy; 2025 ApexElement. All rights reserved. | Empowering businesses with AI</p>
         </div>
       </footer>
     </>
