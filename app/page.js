@@ -223,16 +223,17 @@ export default function Home() {
                 <span className="coming-soon-badge">Coming Soon</span>
               </div>
               <div className="product-body">
-                <h3 className="product-title">AI Recipe Generator</h3>
-                <p className="product-description">Transform your cooking experience with our intelligent recipe generator. Input your available ingredients, dietary preferences, and cuisine choices to get personalized, delicious recipes in seconds.</p>
+                <h3 className="product-title">TasteMoji - Track What You Eat Smarter </h3>
+                <p className="product-description">TasteMoji is a smart nutrition companion, designed for effortless calorie tracking and meal logging 🧮. Snap a photo of your food or type it in, and TateMoji will estimate calories, macros, and keep you on track with your daily goals. You can also discover authentic recipes based on ingredients in your fridge 🍛 and get simple nutrition tips 👩‍🍳 to eat better every day.</p>
                 <ul className="product-features">
+                  <li>Effortless calorie tracking</li>
                   <li>Smart ingredient matching</li>
                   <li>Dietary restrictions support</li>
-                  <li>Nutritional information</li>
-                  <li>Step-by-step instructions</li>
+                  <li>Detailed nutritional information</li>
+                  <li>Step-by-Step cooking instructions</li>
                   <li>Shopping list generator</li>
                 </ul>
-                <button className="btn btn-primary" style={{width: '100%', opacity: 0.7, cursor: 'not-allowed'}} disabled>Launching Soon</button>
+                <button className="btn btn-primary" style={{width: '100%', opacity: 0.7, cursor: 'not-allowed'}} disabled>Launching Soon </button>
               </div>
             </div>
           </div>
