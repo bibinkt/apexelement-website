@@ -236,6 +236,25 @@ export default function Home() {
                 <button className="btn btn-primary" style={{width: '100%', opacity: 0.7, cursor: 'not-allowed'}} disabled>Launching Soon </button>
               </div>
             </div>
+            <div className="product-card fade-in">
+              <div className="product-header">
+                <div className="product-icon">🎓</div>
+                <span className="coming-soon-badge">Coming Soon</span>
+              </div>
+              <div className="product-body">
+                <h3 className="product-title">Syntara - Learn to Code with AI</h3>
+                <p className="product-description">Syntara is an AI-powered adaptive learning coach - a mobile-first application that teaches programming through personalized, conversational coaching sessions. Think of it as having a patient, knowledgeable tutor available 24/7 who adapts to your learning style and pace.</p>
+                <ul className="product-features">
+                  <li>AI coach that adapts in real-time</li>
+                  <li>Personalized explanations using analogies</li>
+                  <li>Active learning through challenges</li>
+                  <li>Affordable and available anytime</li>
+                  <li>Gamification to keep learners engaged</li>
+                  <li>Perfect for career changers & developers</li>
+                </ul>
+                <a href="https://syntara.apexelement.ai" className="btn btn-primary" style={{width: '100%', opacity: 0.7, cursor: 'not-allowed', pointerEvents: 'none', display: 'block', textAlign: 'center', textDecoration: 'none'}}>Launching Soon</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -327,13 +346,6 @@ export default function Home() {
             <h2 className="section-title">Ready to Transform Your Business?</h2>
             <p style={{fontSize: '1.2rem', marginBottom: '2rem'}}>Let's discuss how AI can revolutionize your operations</p>
             
-            <div className="contact-info" style={{marginBottom: '2rem'}}>
-              <div className="contact-item">
-                <span>📱</span>
-                <a href="tel:+16562170785">+1 (656) 217-0785</a>
-              </div>
-            </div>
-
             {/* Contact Form */}
             <form className="contact-form" id="contactForm">
               <div className="form-group">
