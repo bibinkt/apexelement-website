@@ -239,7 +239,6 @@ export default function Home() {
             <div className="product-card fade-in">
               <div className="product-header">
                 <div className="product-icon">🎓</div>
-                <span className="coming-soon-badge">Coming Soon</span>
               </div>
               <div className="product-body">
                 <h3 className="product-title">Syntara - Learn to Code with AI</h3>
@@ -252,7 +251,7 @@ export default function Home() {
                   <li>Gamification to keep learners engaged</li>
                   <li>Perfect for career changers & developers</li>
                 </ul>
-                <a href="https://syntara.apexelement.ai" className="btn btn-primary" style={{width: '100%', opacity: 0.7, cursor: 'not-allowed', pointerEvents: 'none', display: 'block', textAlign: 'center', textDecoration: 'none'}}>Launching Soon</a>
+                <a href="https://syntara.apexelement.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Try Syntara</a>
               </div>
             </div>
           </div>
