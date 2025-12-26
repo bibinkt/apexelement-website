@@ -254,6 +254,24 @@ export default function Home() {
                 <a href="https://syntara.apexelement.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Try Syntara</a>
               </div>
             </div>
+            <div className="product-card fade-in">
+              <div className="product-header">
+                <div className="product-icon">👗</div>
+              </div>
+              <div className="product-body">
+                <h3 className="product-title">LumaMode - AI-Powered Fashion Showcase</h3>
+                <p className="product-description">LumaMode is a stunning, modern e-commerce platform that revolutionizes how fashion products are displayed. Powered by AI-generated marketing content including dynamic images, immersive videos, and authentic audio testimonials, LumaMode brings your fashion catalog to life with cutting-edge visual storytelling.</p>
+                <ul className="product-features">
+                  <li>AI-generated images & videos</li>
+                  <li>Interactive product gallery with zoom</li>
+                  <li>AI audio testimonials</li>
+                  <li>Smooth Framer Motion animations</li>
+                  <li>Glass morphism & gradient designs</li>
+                  <li>Fully responsive on all devices</li>
+                </ul>
+                <a href="https://www.lumamode.org/" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Visit LumaMode</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
