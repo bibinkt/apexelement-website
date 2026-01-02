@@ -629,6 +629,25 @@ footer {
     padding: 0 2rem;
 }
 
+.footer-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #8b5cf6;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a78bfa;
+    text-decoration: underline;
+}
+
 /* Mobile Menu */
 .mobile-menu-toggle {
     display: none;

@@ -414,6 +414,10 @@ export default function Home() {
       <footer>
         <div className="footer-content">
           <p>&copy; 2025 ApexElement. All rights reserved. | Empowering businesses with AI</p>
+          <div className="footer-links">
+            <a href="/terms">Terms & Conditions</a>
+            <a href="/privacy">Privacy Policy</a>
+          </div>
         </div>
       </footer>
     </>
