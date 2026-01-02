@@ -272,6 +272,24 @@ export default function Home() {
                 <a href="https://www.lumamode.org/" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Visit LumaMode</a>
               </div>
             </div>
+            <div className="product-card fade-in">
+              <div className="product-header">
+                <div className="product-icon">🌸</div>
+              </div>
+              <div className="product-body">
+                <h3 className="product-title">Cyclara - Private Menstrual Wellness</h3>
+                <p className="product-description">Cyclara is your private, AI-powered companion for menstrual wellness. Track your cycle, log your mood, and get personalized support from "Serene" - an empathetic AI that runs 100% offline. Your body, your data, your privacy. Everything stays on your device where it belongs.</p>
+                <ul className="product-features">
+                  <li>100% offline - no cloud, no tracking</li>
+                  <li>On-device AI companion "Serene"</li>
+                  <li>Period & cycle phase predictions</li>
+                  <li>Mood & symptom logging</li>
+                  <li>Export or delete data anytime</li>
+                  <li>No account required</li>
+                </ul>
+                <a href="https://cyclara.apexelement.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Try Cyclara</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
