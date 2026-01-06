@@ -5,8 +5,7 @@ export default function PrivacyPolicy() {
     <div className="legal-page">
       <nav className="legal-nav">
         <a href="/" className="logo">
-          <span>⚡</span>
-          <span>ApexElement</span>
+          <img src="/images/logo.png" alt="ApexElement" className="logo-image" />
         </a>
       </nav>
 
@@ -295,11 +294,12 @@ export default function PrivacyPolicy() {
         .logo {
           display: flex;
           align-items: center;
-          gap: 8px;
           text-decoration: none;
-          color: #1a1a2e;
-          font-size: 20px;
-          font-weight: 700;
+        }
+        .logo-image {
+          height: 40px;
+          width: auto;
+          object-fit: contain;
         }
         .legal-content {
           max-width: 800px;
