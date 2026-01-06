@@ -5,7 +5,8 @@ export default function TermsAndConditions() {
     <div className="legal-page">
       <nav className="legal-nav">
         <a href="/" className="logo">
-          <img src="/images/logo.png" alt="ApexElement" className="logo-image" />
+          <span>⚡</span>
+          <span>ApexElement</span>
         </a>
       </nav>
 
@@ -243,12 +244,11 @@ export default function TermsAndConditions() {
         .logo {
           display: flex;
           align-items: center;
+          gap: 8px;
           text-decoration: none;
-        }
-        .logo-image {
-          height: 40px;
-          width: auto;
-          object-fit: contain;
+          color: #1a1a2e;
+          font-size: 20px;
+          font-weight: 700;
         }
         .legal-content {
           max-width: 800px;
