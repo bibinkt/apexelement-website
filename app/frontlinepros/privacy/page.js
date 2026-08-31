@@ -10,7 +10,11 @@ export default function Page() {
     <>
       <Mast />
       <div className="shell narrow doc">
-<p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span> &nbsp;·&nbsp; <strong>Last updated:</strong> <span className="fill">[DATE]</span></p>
+        <div className="doc-head">
+          <div className="kicker">{brand.NAME}</div>
+          <h1>Privacy Policy</h1>
+        </div>
+<p className="dates"><strong>Effective date:</strong> {brand.EFFECTIVE_DATE} &nbsp;·&nbsp; <strong>Last updated:</strong> {brand.EFFECTIVE_DATE}</p>
 
 <div className="note">
   <p><strong>Short version.</strong> FrontlinePros answers calls your shop misses by sending a text from your own business number. To do that we handle the caller's phone number, what they tell us about the broken equipment, and any photo they send.</p>

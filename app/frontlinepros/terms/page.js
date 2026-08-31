@@ -10,7 +10,11 @@ export default function Page() {
     <>
       <Mast />
       <div className="shell narrow doc">
-<p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span> &nbsp;·&nbsp; <strong>Last updated:</strong> <span className="fill">[DATE]</span></p>
+        <div className="doc-head">
+          <div className="kicker">{brand.NAME}</div>
+          <h1>Terms of Service</h1>
+        </div>
+<p className="dates"><strong>Effective date:</strong> {brand.EFFECTIVE_DATE} &nbsp;·&nbsp; <strong>Last updated:</strong> {brand.EFFECTIVE_DATE}</p>
 
 <div className="note">
   <p><strong>Plain summary.</strong> FrontlinePros texts back the callers your shop doesn't answer, from your own number. You keep your number and your phone company. You can switch it off whenever you like. You are responsible for what your business says to your customers — including the messages sent on your behalf — and for holding up your end of the law on texting.</p>

@@ -10,7 +10,11 @@ export default function Page() {
     <>
       <Mast />
       <div className="shell narrow doc">
-<p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span></p>
+        <div className="doc-head">
+          <div className="kicker">{brand.NAME}</div>
+          <h1>Messaging Terms &amp; Conditions</h1>
+        </div>
+<p className="dates"><strong>Effective date:</strong> {brand.EFFECTIVE_DATE}</p>
 
 <div className="note">
   <p><strong>You receive a text from FrontlinePros only because you telephoned a repair business and nobody was able to answer.</strong> The message comes from that business's own number and is a direct reply to your call. It is not marketing.</p>

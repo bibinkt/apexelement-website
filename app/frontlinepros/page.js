@@ -289,28 +289,40 @@ export default function FrontlinePros() {
         <div className="shell">
           <h2>Questions</h2>
           <dl className="faq">
-            <dt>Do I have to change my phone number?</dt>
-            <dd>
+            <div>
+              <dt>Do I have to change my phone number?</dt>
+              <dd>
               No. Calls ring your existing number on your existing carrier. We only pick up the ones
               you don&rsquo;t.
             </dd>
-            <dt>What if I answer the phone?</dt>
-            <dd>Nothing happens. It only triggers on an unanswered call.</dd>
-            <dt>Does the customer know it&rsquo;s automated?</dt>
-            <dd>
+            </div>
+            <div>
+              <dt>What if I answer the phone?</dt>
+              <dd>Nothing happens. It only triggers on an unanswered call.</dd>
+            </div>
+            <div>
+              <dt>Does the customer know it&rsquo;s automated?</dt>
+              <dd>
               They know they&rsquo;re texting your shop. It&rsquo;s brief and it&rsquo;s polite, and
               it never pretends to diagnose anything &mdash; it asks questions and hands you the
               answers.
             </dd>
-            <dt>What if the photo is unreadable?</dt>
-            <dd>It tells you it couldn&rsquo;t read it rather than guessing.</dd>
-            <dt>What does it cost to set up?</dt>
-            <dd>Nothing. Ten minutes on the phone and one code dialled into your handset.</dd>
-            <dt>What if a customer replies STOP?</dt>
-            <dd>
+            </div>
+            <div>
+              <dt>What if the photo is unreadable?</dt>
+              <dd>It tells you it couldn&rsquo;t read it rather than guessing.</dd>
+            </div>
+            <div>
+              <dt>What does it cost to set up?</dt>
+              <dd>Nothing. Ten minutes on the phone and one code dialled into your handset.</dd>
+            </div>
+            <div>
+              <dt>What if a customer replies STOP?</dt>
+              <dd>
               They stop hearing from the system immediately and we keep a record so it stays that
               way. You can still call them back yourself.
             </dd>
+            </div>
           </dl>
         </div>
       </section>
