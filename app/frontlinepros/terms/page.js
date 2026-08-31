@@ -24,7 +24,7 @@ export default function Page() {
 <p>These Terms of Service ("Terms") are a binding agreement between <strong>ApexElement LLC</strong>, a limited liability company registered in {brand.STATE} ("FrontlinePros", "we", "us"), and the business that subscribes to the service ("you", "Subscriber"). By creating an account, activating call forwarding to our service, or using FrontlinePros, you accept these Terms. If you are accepting on behalf of a company, you confirm you have authority to bind it.</p>
 
 <h2>2. What the service does</h2>
-<p>FrontlinePros detects a call to your business number that goes unanswered — your carrier forwards the unanswered call to the FrontlinePros line assigned to your business — and sends the caller a text message from that line, identifying your business by name. Where your own telephone number has been text-enabled for messaging, the reply is sent from your number instead. It exchanges a short series of messages to establish what equipment is involved and what the fault is, may request a photograph of the manufacturer's data plate, and delivers a job card summarising the enquiry to you.</p>
+<p>FrontlinePros detects a call to your business number that goes unanswered — your carrier forwards the unanswered call to the FrontlinePros line assigned to your business — and sends the caller a text message from that line, identifying your business by name. That line is assigned to your business and is not shared with any other subscriber. It exchanges a short series of messages to establish what equipment is involved and what the fault is, may request a photograph of the manufacturer's data plate, and delivers a job card summarising the enquiry to you.</p>
 <p>The service is provided by automated systems, including machine-learning models.</p>
 
 <h3>2.1 What the service is not</h3>
@@ -52,7 +52,7 @@ export default function Page() {
   <li>Not send, or cause to be sent, any message containing content prohibited by carriers or by law — including but not limited to cannabis, illegal substances, firearms, hate speech, harassment, adult content, gambling, high-risk financial offers, or phishing.</li>
   <li>Not use the service in any way that is unlawful, deceptive, or that impersonates another business.</li>
 </ul>
-<p>You are responsible for the content of messages sent from your number and for the consequences of your use of the service. <strong>If your use of the service causes a claim against us — including a TCPA claim — section 12 (Indemnity) applies.</strong></p>
+<p>You are responsible for the content of messages sent on your behalf and for the consequences of your use of the service. <strong>If your use of the service causes a claim against us — including a TCPA claim — section 12 (Indemnity) applies.</strong></p>
 
 <h2>5. Accounts and access</h2>
 <p>You must provide accurate registration information and keep it current. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Tell us promptly at <a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a> if you suspect unauthorised access.</p>

@@ -102,7 +102,7 @@ You can also reach us through the <a href={`${b}/contact`}>contact form</a> on t
 <p>All processors act on our documented instructions under written agreements.</p>
 
 <h2>7. Text messaging, consent and opt-out</h2>
-<p><strong>Why you receive a message.</strong> A Caller receives a text only because that Caller telephoned a Subscriber's business and the call was not answered. The unanswered call is forwarded by the business's own telephone carrier to the FrontlinePros line assigned to that business, and the reply is sent from that line. The first message identifies the business by name. Where a Subscriber's own telephone number has been text-enabled, the reply comes from that number instead. Either way the message is a direct reply to an enquiry the Caller initiated. It is transactional and relates solely to the service enquiry.</p>
+<p><strong>Why you receive a message.</strong> A Caller receives a text only because that Caller telephoned a Subscriber's business and the call was not answered. The unanswered call is forwarded by the business's own telephone carrier to the FrontlinePros line assigned to that business, and the reply is sent from that line. That line is assigned to that business alone and is not shared with any other Subscriber. The first message identifies the business by name. The message is a direct reply to an enquiry the Caller initiated. It is transactional and relates solely to the service enquiry.</p>
 <ul>
   <li><strong>We do not send marketing or promotional text messages to Callers.</strong></li>
   <li><strong>We do not add Caller numbers to any marketing list.</strong></li>
