@@ -10,11 +10,12 @@ const SUPABASE_ANON_KEY =
 // The exact wording shown beside the opt-in checkbox. Stored verbatim with every
 // consent record so we can evidence what the person actually agreed to.
 export const CONSENT_TEXT =
-  'Text me about FrontlinePros. I agree to receive marketing and account text messages ' +
-  'from FrontlinePros (ApexElement LLC) at the mobile number above, including messages sent ' +
-  'using automated technology. Msg frequency varies, about 2-4 per month. Msg & data rates ' +
-  'may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any ' +
-  'purchase. See our Privacy Policy and Messaging Terms.';
+  'Text me marketing messages about FrontlinePros. I agree to receive recurring marketing ' +
+  'text messages from FrontlinePros (ApexElement LLC) at the mobile number above, sent using ' +
+  'automated technology. This consent is for marketing messages only and is separate from any ' +
+  'service or account messages. Msg frequency varies, about 2-4 per month. Msg & data rates may ' +
+  'apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any purchase. ' +
+  'See our Privacy Policy and Messaging Terms.';
 
 export default function ContactForm({ base = '' }) {
   const [status, setStatus] = useState(null); // null | 'ok' | 'err'
@@ -95,11 +96,12 @@ export default function ContactForm({ base = '' }) {
             <label className="optin-row" htmlFor="sms_optin">
               <input type="checkbox" id="sms_optin" name="sms_optin" value="yes" />
               <span className="optin-text">
-                <b>Text me about {brand.NAME}.</b> I agree to receive marketing and account text
-                messages from {brand.NAME} ({brand.LEGAL_ENTITY}) at the mobile number above,
-                including messages sent using automated technology. Msg frequency varies, about
-                2&ndash;4 per month. Msg &amp; data rates may apply. Reply STOP to opt out, HELP
-                for help. Consent is not a condition of any purchase. See our{' '}
+                <b>Text me marketing messages about {brand.NAME}.</b> I agree to receive recurring
+                marketing text messages from {brand.NAME} ({brand.LEGAL_ENTITY}) at the mobile
+                number above, sent using automated technology. This consent is for marketing
+                messages only and is separate from any service or account messages. Msg frequency
+                varies, about 2&ndash;4 per month. Msg &amp; data rates may apply. Reply STOP to
+                opt out, HELP for help. Consent is not a condition of any purchase. See our{' '}
                 <a href={`${base}/privacy`}>Privacy Policy</a> and{' '}
                 <a href={`${base}/messaging-terms`}>Messaging Terms</a>.
               </span>

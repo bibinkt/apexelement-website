@@ -24,16 +24,16 @@ export default function Page() {
 <p><strong>Program name:</strong> FrontlinePros Business Updates</p>
 <p><strong>Operated by:</strong> ApexElement LLC, a Florida limited liability company.</p>
 <p><strong>Who receives messages:</strong> Owners, managers and decision-makers at independent appliance repair, HVAC, plumbing and similar home-service businesses in the United States who have opted in as described below.</p>
-<p><strong>What we send:</strong> A confirmation when you opt in, information about what our missed-call text-back service does and what it costs, invitations to a short demonstration call, occasional pricing and availability announcements, and follow-ups on a demonstration you asked for.</p>
-<p><strong>Message type:</strong> <strong>Marketing and account messages</strong> about the FrontlinePros service, sent to business contacts who opted in.</p>
+<p><strong>What we send:</strong> Marketing messages only &mdash; a confirmation when you opt in, information about what our missed-call text-back service does and what it costs, invitations to a short demonstration call, and occasional pricing and availability announcements.</p>
+<p><strong>Message type:</strong> <strong>Marketing messages</strong> about the FrontlinePros service, sent to business contacts who ticked the marketing consent box. Consent for these is collected on its own and is not bundled with any other permission.</p>
 
 <h2>How you opt in</h2>
-<p>There is <strong>one</strong> way to join this program.</p>
+<p>There is <strong>one</strong> way to join this program, and marketing consent is collected on its own &mdash; ticking the box does nothing except start these marketing texts.</p>
 <ol>
   <li>You visit our <a href={`${b}/contact`}>contact page</a>.</li>
   <li>You complete the form, including your mobile number.</li>
   <li>Below the form there is a <strong>separate checkbox that is not ticked when the page loads</strong>. You must tick it yourself. It reads:
-    <div className="sample">Text me about FrontlinePros. I agree to receive marketing and account text messages from FrontlinePros (ApexElement LLC) at the mobile number above, including messages sent using automated technology. Msg frequency varies, about 2&ndash;4 per month. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any purchase. See our Privacy Policy and Messaging Terms.</div>
+    <div className="sample">Text me marketing messages about FrontlinePros. I agree to receive recurring marketing text messages from FrontlinePros (ApexElement LLC) at the mobile number above, sent using automated technology. This consent is for marketing messages only and is separate from any service or account messages. Msg frequency varies, about 2&ndash;4 per month. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any purchase. See our Privacy Policy and Messaging Terms.</div>
   </li>
   <li>You submit the form. We record your number, the date and time, and the exact wording above.</li>
   <li>We send one confirmation text. You are then in the program.</li>
