@@ -134,31 +134,6 @@
 }
 .rw .trust span:last-child { border-right: 0; }
 
-/* ── text thread ──────────────────────────────────────── */
-.rw .phone {
-  border: 1px solid var(--rule-2); background: #fff;
-  box-shadow: 0 24px 60px -28px rgba(21,21,14,.42), 0 2px 8px rgba(21,21,14,.06);
-}
-.rw .phone-top {
-  display: flex; align-items: center; gap: 11px; padding: 14px 18px;
-  border-bottom: 1px solid var(--rule); background: var(--band);
-}
-.rw .phone-top b { display: block; font-size: 15px; color: var(--ink); }
-.rw .phone-top em { font-style: normal; font-size: 12.5px; color: var(--muted); }
-.rw .dot { width: 30px; height: 30px; border-radius: 50%; flex: 0 0 30px; background: var(--rule-2); }
-.rw .thread { padding: 18px; display: flex; flex-direction: column; gap: 9px; }
-.rw .stamp {
-  text-align: center; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--muted); margin: 6px 0;
-}
-.rw .msg { max-width: 84%; padding: 10px 14px; font-size: 14.5px; line-height: 1.46; border-radius: 3px; }
-.rw .msg.out { align-self: flex-start; background: var(--band); color: var(--ink-2); }
-.rw .msg.in { align-self: flex-end; background: var(--ink); color: #f4f1e6; }
-.rw .msg.photo {
-  display: flex; align-items: center; gap: 8px;
-  font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px;
-}
-
 /* ── section headings ─────────────────────────────────── */
 .rw h2 {
   font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase;
@@ -390,3 +365,113 @@
 .rw .doc-head { margin-bottom: 6px; }
 .rw .doc-head .kicker { margin-bottom: 10px; }
 .rw .doc h1 { font-size: 38px; letter-spacing: -.025em; margin: 0 0 6px; max-width: none; }
+
+/* ═══ realistic phone ══════════════════════════════════ */
+.rw .device-wrap { display: flex; flex-direction: column; align-items: center; }
+.rw .device {
+  width: 335px; max-width: 100%;
+  background: #1b1b1e;
+  border-radius: 46px;
+  padding: 11px;
+  box-shadow:
+    0 0 0 1.5px #35353a,
+    0 2px 3px rgba(255,255,255,.14) inset,
+    0 40px 80px -30px rgba(20,20,14,.55),
+    0 12px 28px -14px rgba(20,20,14,.35);
+}
+.rw .device-screen {
+  background: #fff; border-radius: 36px; overflow: hidden;
+  display: flex; flex-direction: column; height: 764px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  color: #000;
+}
+
+/* status bar */
+.rw .status {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 22px 6px; font-size: 14px; font-weight: 600; color: #000;
+  position: relative; flex: 0 0 auto;
+}
+.rw .status-time { letter-spacing: -.01em; min-width: 54px; }
+.rw .island {
+  position: absolute; left: 50%; transform: translateX(-50%); top: 8px;
+  width: 86px; height: 24px; background: #1b1b1e; border-radius: 14px;
+}
+.rw .status-right { display: flex; align-items: center; gap: 5px; color: #000; }
+.rw .batt {
+  width: 24px; height: 12px; border: 1.2px solid rgba(0,0,0,.4); border-radius: 3.5px;
+  padding: 1.4px; display: inline-block; position: relative;
+}
+.rw .batt::after {
+  content: ""; position: absolute; right: -3px; top: 3.6px; width: 1.6px; height: 4px;
+  background: rgba(0,0,0,.4); border-radius: 0 1px 1px 0;
+}
+.rw .batt-fill { display: block; width: 72%; height: 100%; background: #000; border-radius: 1.6px; }
+
+/* conversation header */
+.rw .convo-head {
+  display: flex; align-items: center; gap: 6px; padding: 4px 14px 10px;
+  border-bottom: .5px solid rgba(0,0,0,.16);
+  background: rgba(247,247,247,.96); flex: 0 0 auto;
+}
+.rw .chev { color: #007aff; flex: 0 0 auto; margin-top: 14px; }
+.rw .convo-id { flex: 1; display: flex; flex-direction: column; align-items: center; }
+.rw .avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: #c8c7cc; color: #fff;
+  font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 3px; letter-spacing: .02em;
+}
+.rw .convo-id b { font-size: 12.5px; font-weight: 600; color: #000; line-height: 1.2; }
+.rw .convo-sub { font-size: 10.5px; color: #8a8a8e; margin-top: 1px; }
+
+/* thread */
+.rw .thread {
+  flex: 1; overflow: hidden; padding: 12px 12px 6px;
+  display: flex; flex-direction: column; gap: 3px; background: #fff;
+}
+.rw .daystamp { text-align: center; font-size: 10.5px; color: #8a8a8e; margin: 2px 0 8px; }
+.rw .daystamp b { color: #6b6b70; font-weight: 600; }
+.rw .missed {
+  align-self: center; display: flex; align-items: center; gap: 5px;
+  font-size: 10.5px; color: #8a8a8e; margin-bottom: 8px;
+}
+.rw .bub {
+  max-width: 76%; padding: 8px 13px; font-size: 14.5px; line-height: 1.32;
+  border-radius: 19px; position: relative; margin-bottom: 4px; word-break: break-word;
+}
+.rw .bub.them { align-self: flex-start; background: #e9e9eb; color: #000; border-bottom-left-radius: 5px; }
+.rw .bub.me { align-self: flex-end; background: #34c759; color: #fff; border-bottom-right-radius: 5px; }
+.rw .bub.att {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-variant-numeric: tabular-nums;
+}
+.rw .delivered { align-self: flex-end; font-size: 10px; color: #8a8a8e; margin: -1px 4px 0; }
+
+/* input bar */
+.rw .inputbar {
+  display: flex; align-items: center; gap: 9px; padding: 9px 12px 6px;
+  border-top: .5px solid rgba(0,0,0,.14); background: #fff; flex: 0 0 auto;
+}
+.rw .plus {
+  width: 29px; height: 29px; border-radius: 50%; background: #e9e9eb; color: #6b6b70;
+  display: flex; align-items: center; justify-content: center; font-size: 19px;
+  line-height: 1; flex: 0 0 auto; font-weight: 300;
+}
+.rw .field {
+  flex: 1; border: .8px solid rgba(0,0,0,.16); border-radius: 16px; padding: 6px 12px;
+  font-size: 14px; color: #a3a3a8;
+}
+.rw .mic { color: #6b6b70; display: flex; flex: 0 0 auto; }
+.rw .homebar {
+  height: 22px; background: #fff; position: relative; flex: 0 0 auto;
+}
+.rw .homebar::after {
+  content: ""; position: absolute; left: 50%; transform: translateX(-50%); bottom: 7px;
+  width: 118px; height: 4.5px; background: #000; border-radius: 3px; opacity: .9;
+}
+.rw .device-cap { font-size: 13px; color: var(--muted); margin: 18px 0 0; text-align: center; }
+
+@media (max-width: 900px) {
+  .rw .device { width: 300px; }
+  .rw .device-screen { height: 690px; }
+}

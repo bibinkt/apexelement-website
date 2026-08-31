@@ -1,6 +1,7 @@
 import { brand } from './brand';
 import { Mast, Foot } from './chrome';
 import { productBase } from './nav';
+import { PhoneMockup } from './phone';
 
 const IMG = (id, w = 1200) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -40,37 +41,7 @@ export default function FrontlinePros() {
             </div>
           </div>
 
-          {/* the conversation the customer actually sees */}
-          <div className="phone">
-            <div className="phone-top">
-              <span className="dot" />
-              <div>
-                <b>Ace Appliance</b>
-                <em>(407) 555-0110</em>
-              </div>
-            </div>
-            <div className="thread">
-              <div className="stamp">Missed call &mdash; 2:14 PM</div>
-              <div className="msg out">
-                Hi, this is Ace Appliance. Sorry we couldn&rsquo;t pick up &mdash; we&rsquo;re on a
-                job. What&rsquo;s giving you trouble?
-              </div>
-              <div className="msg in">Fridge stopped cooling. Freezer&rsquo;s still fine though</div>
-              <div className="msg out">
-                Got it. Can you send a photo of the sticker inside the door with the model number?
-              </div>
-              <div className="msg in photo">
-                <span>📷</span> data-plate.jpg
-              </div>
-              <div className="msg out">
-                Perfect &mdash; Whirlpool WRF535SWHZ04. Is the door sealing shut, and is the breaker
-                on?
-              </div>
-              <div className="msg in">Both fine</div>
-              <div className="msg out">Thanks. Tom will call you back within the hour.</div>
-              <div className="stamp">Job card sent &mdash; 2:16 PM</div>
-            </div>
-          </div>
+          <PhoneMockup />
         </div>
       </div>
 
