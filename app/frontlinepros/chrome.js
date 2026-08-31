@@ -15,8 +15,8 @@ export function Mast() {
         <nav>
           <a href={`${b}/#how`}>How it works</a>
           <a href={`${b}/#offer`}>Founding offer</a>
-          <a href={`${b}/contact`} className="nav-cta">
-            Talk to us
+          <a href={`tel:${brand.PHONE_E164}`} className="nav-cta">
+            Call {brand.PHONE}
           </a>
         </nav>
       </div>

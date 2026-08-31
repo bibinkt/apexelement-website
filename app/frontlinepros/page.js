@@ -28,12 +28,15 @@ export default function FrontlinePros() {
               anyone else.
             </p>
             <p className="hero-cta">
-              <a href={`${b}/contact`} className="btn">
-                Claim a founding spot
+              <a href={`tel:${brand.PHONE_E164}`} className="btn">
+                Call {brand.PHONE} &mdash; see it work
               </a>
               <a href="#how" className="btn btn-ghost">
-                See how it works
+                How it works
               </a>
+            </p>
+            <p className="hero-note">
+              Ring it and let it ring out. You&rsquo;ll get the same text your customer would.
             </p>
             <div className="trust">
               <span>Keep your number</span>
@@ -43,6 +46,28 @@ export default function FrontlinePros() {
           </div>
 
           <PhoneMockup />
+        </div>
+      </div>
+
+      {/* ── TRUST ──────────────────────────────────────── */}
+      <div className="trustbar">
+        <div className="shell trustbar-in">
+          <div>
+            <b>Built in Florida</b>
+            <span>Made here, for shops here.</span>
+          </div>
+          <div>
+            <b>We answer our own phone</b>
+            <span>It would be a strange product if we didn&rsquo;t.</span>
+          </div>
+          <div>
+            <b>Not a call centre</b>
+            <span>Nobody else speaks to your customers.</span>
+          </div>
+          <div>
+            <b>Off in one dial</b>
+            <span>You are never locked in.</span>
+          </div>
         </div>
       </div>
 
@@ -196,8 +221,8 @@ export default function FrontlinePros() {
               </p>
               <p className="price">After that it&rsquo;s {brand.PRICE} a month. Setup is free.</p>
               <p style={{ marginTop: '22px' }}>
-                <a href={`${b}/contact`} className="btn">
-                  Talk to us
+                <a href={`tel:${brand.PHONE_E164}`} className="btn">
+                  Call {brand.PHONE}
                 </a>
               </p>
             </div>
@@ -267,9 +292,12 @@ export default function FrontlinePros() {
           <h3>Stop losing the call you couldn&rsquo;t get to.</h3>
           <p>Ten minutes to set up. Nothing to install. Five founding spots.</p>
           <p>
-            <a href={`${b}/contact`} className="btn">
-              Claim a founding spot
+            <a href={`tel:${brand.PHONE_E164}`} className="btn">
+              Call {brand.PHONE}
             </a>
+          </p>
+          <p className="closer-alt">
+            Or <a href={`${b}/contact`}>leave us a note</a> and we&rsquo;ll ring you back.
           </p>
         </div>
       </section>

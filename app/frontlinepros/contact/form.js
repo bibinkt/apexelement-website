@@ -48,16 +48,6 @@ export default function ContactForm({ base = '' }) {
 
   return (
     <>
-      <div className="shell narrow doc">
-        <h1>Talk to us</h1>
-        <p className="dates">
-          We&rsquo;re taking five shops in Florida as founding members. Free for life.
-        </p>
-        <p>
-          Tell us what you run and roughly how many calls a week go unanswered. We&rsquo;ll call you
-          back &mdash; a real person, ten minutes, no presentation.
-        </p>
-
         <form onSubmit={onSubmit}>
           <label htmlFor="name">Your name</label>
           <input id="name" name="name" required autoComplete="name" />
@@ -110,16 +100,9 @@ export default function ContactForm({ base = '' }) {
           </p>
         </form>
 
-        <h2>Direct</h2>
-        <p>
-          <strong>{brand.LEGAL_ENTITY}</strong>
-          <br />
-          <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a>
+        <p className="hint">
+          Or email <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a> directly.
         </p>
-        <p>
-          Privacy requests: <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a>
-        </p>
-      </div>
     </>
   );
 }

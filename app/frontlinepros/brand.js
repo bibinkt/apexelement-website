@@ -6,6 +6,8 @@ export const brand = {
   STATE: 'Florida',
   COUNTY_STATE: 'Orange County, Florida',
   EMAIL: 'hello@apexelement.ai',
+  PHONE: '(680) 203-2310',
+  PHONE_E164: '+16802032310',
   PRICE: '$49',
   EFFECTIVE_DATE: 'September 1, 2026',
   YEAR: '2026',
