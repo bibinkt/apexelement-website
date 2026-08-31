@@ -17,7 +17,7 @@ export default function Page() {
 <p className="dates"><strong>Effective date:</strong> {brand.EFFECTIVE_DATE} &nbsp;·&nbsp; <strong>Last updated:</strong> {brand.EFFECTIVE_DATE}</p>
 
 <div className="note">
-  <p><strong>Short version.</strong> FrontlinePros answers calls your shop misses by sending a text from your own business number. To do that we handle the caller's phone number, what they tell us about the broken equipment, and any photo they send.</p>
+  <p><strong>Short version.</strong> FrontlinePros answers calls your shop misses by texting the caller back from the line dedicated to your business, which names your business in the first message. To do that we handle the caller's phone number, what they tell us about the broken equipment, and any photo they send.</p>
   <p><strong>We do not sell personal information. We do not share phone numbers, text-message content, or opt-in data with third parties for their own marketing, and we never will.</strong></p>
 </div>
 
@@ -36,7 +36,7 @@ You can also reach us through the <a href={`${b}/contact`}>contact form</a> on t
   </tr>
   <tr>
     <td><strong>Callers</strong></td>
-    <td>A member of the public who telephones a Subscriber's business, is not answered, and receives an automated text back from that business's number. You do not have an account with us. We process your information on the Subscriber's instructions.</td>
+    <td>A member of the public who telephones a Subscriber's business, is not answered, and receives an automated text back from the line dedicated to that business. You do not have an account with us. We process your information on the Subscriber's instructions.</td>
   </tr>
 </table>
 <p>For Callers, the Subscriber is the <strong>controller</strong> of the information and FrontlinePros acts as its <strong>service provider / processor</strong>. If you are a Caller and want your information deleted, you may contact us directly (see section 10) and we will act on it.</p>
@@ -102,7 +102,7 @@ You can also reach us through the <a href={`${b}/contact`}>contact form</a> on t
 <p>All processors act on our documented instructions under written agreements.</p>
 
 <h2>7. Text messaging, consent and opt-out</h2>
-<p><strong>Why you receive a message.</strong> A Caller receives a text from a Subscriber's business number only because that Caller telephoned that business and the call was not answered. The message is a direct reply to an enquiry the Caller initiated. It is transactional and relates solely to the service enquiry.</p>
+<p><strong>Why you receive a message.</strong> A Caller receives a text only because that Caller telephoned a Subscriber's business and the call was not answered. The unanswered call is forwarded by the business's own telephone carrier to the FrontlinePros line assigned to that business, and the reply is sent from that line. The first message identifies the business by name. Where a Subscriber's own telephone number has been text-enabled, the reply comes from that number instead. Either way the message is a direct reply to an enquiry the Caller initiated. It is transactional and relates solely to the service enquiry.</p>
 <ul>
   <li><strong>We do not send marketing or promotional text messages to Callers.</strong></li>
   <li><strong>We do not add Caller numbers to any marketing list.</strong></li>
@@ -111,6 +111,8 @@ You can also reach us through the <a href={`${b}/contact`}>contact form</a> on t
 <p><strong>Opting out.</strong> Reply <strong>STOP</strong> to any message to stop all further messages from that business immediately. You may also reply UNSUBSCRIBE, CANCEL, END or QUIT. You will receive one confirmation message and then nothing further. Reply <strong>HELP</strong> for assistance, or contact the business directly.</p>
 <p>Message and data rates may apply. Message frequency varies and depends on the exchange required to describe the fault; a typical enquiry involves fewer than ten messages. Carriers are not liable for delayed or undelivered messages.</p>
 <p>Opt-out requests are recorded and honoured indefinitely. We retain a record of the opt-out itself precisely so that we can continue to honour it.</p>
+
+<p><strong>Messages to business owners.</strong> Separately from the above, we send marketing and account text messages to owners and managers of home-service businesses who have asked to receive them by ticking the consent box on our <a href={`${b}/contact`}>contact page</a>. That box is not ticked by default, ticking it is optional, and it is never a condition of any purchase. We record the number, the date and time, and the exact consent wording shown at the time. Those messages go out about two to four times a month, and STOP and HELP work exactly as described above. That programme is described in full as Program A in our <a href={`${b}/messaging-terms`}>Messaging Terms</a>; the missed-call replies described above are Program B. The two are separate programmes with separate consent, and opting into one never opts you into the other.</p>
 
 <h2>8. How long we keep information</h2>
 <table>
