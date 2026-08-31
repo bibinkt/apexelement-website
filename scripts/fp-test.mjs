@@ -40,7 +40,14 @@ function toOwner() {
   return sent().filter((m) => m.to !== CALLER).map((m) => m.body);
 }
 
+// Each scenario resets the store, so bank the spend before wiping it —
+// otherwise the total at the end only reflects the final scenario.
+let bankedEvents = 0, bankedUsd = 0;
+
 async function freshShop(trade = 'appliance') {
+  const c = _testTable('fp_costs');
+  bankedEvents += c.length;
+  bankedUsd += c.reduce((s, r) => s + Number(r.usd || 0), 0);
   _testReset();
   globalThis.__FP_SENT = [];
   return insert('fp_shops', {
@@ -221,11 +228,12 @@ for (const name of names) {
   }
 }
 
-const costs = _testTable('fp_costs');
-const spend = costs.reduce((s, r) => s + Number(r.usd || 0), 0);
+const tail = _testTable('fp_costs');
+const events = bankedEvents + tail.length;
+const spend = bankedUsd + tail.reduce((s, r) => s + Number(r.usd || 0), 0);
 console.log(
   '\n' +
     c.bold(`${pass} passed, ${fail} failed`) +
-    c.dim(`   ·  ${costs.length} metered events, $${spend.toFixed(4)} across all scenarios`)
+    c.dim(`   ·  ${events} metered events, $${spend.toFixed(4)} across all scenarios`)
 );
 process.exit(fail ? 1 : 0);
