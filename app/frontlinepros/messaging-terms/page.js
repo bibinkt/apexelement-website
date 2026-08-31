@@ -17,10 +17,10 @@ export default function Page() {
 <p className="dates"><strong>Effective date:</strong> {brand.EFFECTIVE_DATE}</p>
 
 <div className="note">
-  <p><strong>This page covers the text messages FrontlinePros sends to owners and managers of home-service businesses who have asked to hear from us.</strong> You receive them only because you ticked the consent box on our contact form. You can stop them at any time by replying STOP.</p>
+  <p><strong>FrontlinePros runs two separate text message programs.</strong> <strong>Program A</strong> is for business owners who asked to hear from us and ticked the consent box on our contact form. <strong>Program B</strong> is for consumers who telephoned a repair business and did not get an answer. They have different consent, different numbers and separate registrations. Either can be stopped by replying STOP.</p>
 </div>
 
-<h2>Program description</h2>
+<h2>Program A &mdash; FrontlinePros Business Updates</h2>
 <p><strong>Program name:</strong> FrontlinePros Business Updates</p>
 <p><strong>Operated by:</strong> ApexElement LLC, a Florida limited liability company.</p>
 <p><strong>Who receives messages:</strong> Owners, managers and decision-makers at independent appliance repair, HVAC, plumbing and similar home-service businesses in the United States who have opted in as described below.</p>
@@ -71,7 +71,7 @@ export default function Page() {
 <h2>Privacy</h2>
 <p>We collect your telephone number, the date and time you opted in, the consent wording shown to you, and the content of your messages, in order to send you the messages you asked for and to answer your replies.</p>
 <div className="note">
-  <p><strong>No mobile information — including your telephone number, your opt-in status, or the content of your messages — is sold, rented, or shared with any third party or affiliate for that third party's marketing or promotional purposes.</strong> This information is shared only with the business you telephoned and with the service providers strictly necessary to deliver the messages.</p>
+  <p><strong>No mobile information — including your telephone number, your opt-in status, or the content of your messages — is sold, rented, or shared with any third party or affiliate for that third party's marketing or promotional purposes.</strong> For Program A this information stays with ApexElement LLC and the service providers strictly necessary to deliver the messages. For Program B it is shared only with the business you telephoned and those same providers.</p>
 </div>
 <p>Full detail is in our <a href={`${b}/privacy`}>Privacy Policy</a>.</p>
 <p><strong>Please do not send payment card details, bank details, identification numbers or health information by text.</strong> We never ask for them.</p>
@@ -79,10 +79,41 @@ export default function Page() {
 <h2>Not for emergencies</h2>
 <p>This program must not be used to report an emergency. <strong>If you smell gas, suspect a carbon-monoxide leak, or face fire, flooding or any risk to life or property, call 911 or your utility's emergency line.</strong> Automated text messages are not monitored continuously and must not be relied on in an emergency.</p>
 
-<h2>A note about our missed-call service</h2>
-<p>The service we sell to home-service businesses replies by text to <em>their</em> customers when a call goes unanswered. <strong>That is a separate messaging program with its own consent, its own numbers and its own registration, and it is not covered by these terms.</strong> Nothing on this page opts anyone into it, and no consumer is texted by that service unless they have themselves telephoned a participating business.</p>
+<hr />
 
-<h2>Quick reference</h2>
+<h2>Program B &mdash; FrontlinePros Missed-Call Reply</h2>
+<div className="note">
+  <p><strong>This is a separate program with its own consent, its own numbers and its own registration.</strong> It is for consumers, not for business owners. Nothing on the rest of this page opts anyone into it, and joining Program A does not join you to this one.</p>
+</div>
+<p><strong>Operated by:</strong> ApexElement LLC on behalf of independent appliance repair, HVAC, plumbing and similar home-service businesses.</p>
+<p><strong>Who receives messages:</strong> A consumer who has just telephoned a participating business and whose call was not answered.</p>
+<p><strong>Message type:</strong> Conversational customer care &mdash; a reply to the enquiry you started by calling. <strong>No marketing or promotional content is sent through this program.</strong></p>
+
+<h3>How consent works</h3>
+<p>Consent is <strong>your own inbound telephone call to the business</strong>. There is no form to fill in and no list.</p>
+<ol>
+  <li>You dial the published number of a participating business because you want a repair.</li>
+  <li>Nobody answers within about 20 seconds, because the technicians are out on a job.</li>
+  <li>That business&rsquo;s own telephone carrier forwards the unanswered call to the FrontlinePros line assigned to that business. Calls the business answers are never forwarded.</li>
+  <li>You hear a short recorded greeting that names the business, apologises for missing you, and tells you a text is on its way.</li>
+  <li>You receive a text. It names the business, says message and data rates may apply, and tells you to reply STOP to opt out or HELP for help.</li>
+  <li>You reply if you want to. You can reply STOP at any point.</li>
+</ol>
+<p>We record your number, the time of your call and which business you called. We never text a number that has not just called a participating business, and we never buy, rent, import or upload numbers. Consent is not a condition of any purchase.</p>
+
+<h3>What it asks you</h3>
+<p>What has gone wrong, how long it has been happening, where you are and when you are free. It may ask for a photograph &mdash; often of the manufacturer&rsquo;s data plate &mdash; so the technician arrives with the right part. Your answers go to the business as a job card so they can call you back and book the work.</p>
+
+<h3>Frequency, stopping and help</h3>
+<p>Frequency varies with the conversation; a typical enquiry is <strong>fewer than 10 messages</strong>, and nothing recurring is sent once it is finished. <strong>Message and data rates may apply.</strong> Reply <strong>STOP</strong> to unsubscribe immediately and permanently, or <strong>HELP</strong> to get the business&rsquo;s identity and a support address. Stopping the texts does not stop the business returning your call by telephone.</p>
+
+<div className="note">
+  <p><strong>Not for emergencies.</strong> If you smell gas, suspect a carbon-monoxide leak, or face fire, flooding or any risk to life or property, call 911 or your utility&rsquo;s emergency line. These messages are not monitored continuously.</p>
+</div>
+
+<hr />
+
+<h2>Quick reference &mdash; Program A</h2>
 <table>
   <tr><th>Program</th><td>FrontlinePros Business Updates</td></tr>
   <tr><th>Operator</th><td>ApexElement LLC</td></tr>
