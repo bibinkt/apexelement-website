@@ -11,30 +11,30 @@ export default function Page() {
 <p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span> &nbsp;·&nbsp; <strong>Last updated:</strong> <span className="fill">[DATE]</span></p>
 
 <div className="note">
-  <p><strong>Short version.</strong> Ring Wrench answers calls your shop misses by sending a text from your own business number. To do that we handle the caller's phone number, what they tell us about the broken equipment, and any photo they send.</p>
+  <p><strong>Short version.</strong> FrontlinePros answers calls your shop misses by sending a text from your own business number. To do that we handle the caller's phone number, what they tell us about the broken equipment, and any photo they send.</p>
   <p><strong>We do not sell personal information. We do not share phone numbers, text-message content, or opt-in data with third parties for their own marketing, and we never will.</strong></p>
 </div>
 
 <h2>1. Who we are</h2>
-<p>Ring Wrench is a service operated by <strong>ApexElement LLC</strong> ("Ring Wrench", "we", "us", "our"), a limited liability company registered in <span className="fill">[STATE]</span>, United States.</p>
+<p>FrontlinePros is a service operated by <strong>ApexElement LLC</strong> ("FrontlinePros", "we", "us", "our"), a limited liability company registered in <span className="fill">[STATE]</span>, United States.</p>
 <p><strong>Registered address:</strong> <span className="fill">[BUSINESS ADDRESS]</span><br />
-<strong>Privacy contact:</strong> <a href="mailto:privacy@ringwrench.com"><span className="fill">privacy@[DOMAIN]</span></a><br />
+<strong>Privacy contact:</strong> <a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a><br />
 <strong>Phone:</strong> <span className="fill">[PHONE]</span></p>
 
 <h2>2. Two kinds of people this policy covers</h2>
-<p>Ring Wrench sits between a service business and the people who call it, so this policy covers two separate groups. Your rights differ slightly depending on which one you are.</p>
+<p>FrontlinePros sits between a service business and the people who call it, so this policy covers two separate groups. Your rights differ slightly depending on which one you are.</p>
 <table>
   <tr><th style={{width: '26%'}}>Who</th><th>What that means</th></tr>
   <tr>
     <td><strong>Subscribers</strong></td>
-    <td>The repair, HVAC or plumbing business that signs up for Ring Wrench. You have an account with us and a contract with us.</td>
+    <td>The repair, HVAC or plumbing business that signs up for FrontlinePros. You have an account with us and a contract with us.</td>
   </tr>
   <tr>
     <td><strong>Callers</strong></td>
     <td>A member of the public who telephones a Subscriber's business, is not answered, and receives an automated text back from that business's number. You do not have an account with us. We process your information on the Subscriber's instructions.</td>
   </tr>
 </table>
-<p>For Callers, the Subscriber is the <strong>controller</strong> of the information and Ring Wrench acts as its <strong>service provider / processor</strong>. If you are a Caller and want your information deleted, you may contact us directly (see section 10) and we will act on it.</p>
+<p>For Callers, the Subscriber is the <strong>controller</strong> of the information and FrontlinePros acts as its <strong>service provider / processor</strong>. If you are a Caller and want your information deleted, you may contact us directly (see section 10) and we will act on it.</p>
 
 <h2>3. Information we collect</h2>
 
@@ -74,7 +74,7 @@ export default function Page() {
 </table>
 
 <h3>4.1 Automated processing</h3>
-<p>Ring Wrench uses automated systems, including machine-learning models, to read text messages and photographs in order to extract equipment details and compose the job card. <strong>These systems do not make decisions that produce legal or similarly significant effects about any person.</strong> They summarise a service enquiry for a tradesperson to act on. If a data plate cannot be read reliably, the system reports that it could not read it rather than guessing.</p>
+<p>FrontlinePros uses automated systems, including machine-learning models, to read text messages and photographs in order to extract equipment details and compose the job card. <strong>These systems do not make decisions that produce legal or similarly significant effects about any person.</strong> They summarise a service enquiry for a tradesperson to act on. If a data plate cannot be read reliably, the system reports that it could not read it rather than guessing.</p>
 
 <h2>5. We do not sell your information</h2>
 <div className="note">
@@ -129,11 +129,11 @@ export default function Page() {
   <li><strong>Opt out</strong> of sale or sharing — though as stated above, we do not sell or share personal information.</li>
   <li><strong>Not be discriminated against</strong> for exercising any of these rights.</li>
 </ul>
-<p>To exercise any right, email <a href="mailto:privacy@ringwrench.com"><span className="fill">privacy@[DOMAIN]</span></a> or write to us at the address in section 1. We will verify your identity — usually by confirming control of the telephone number or email address in question — and respond within the period required by law (generally 45 days in the United States). You may use an authorised agent.</p>
+<p>To exercise any right, email <a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a> or write to us at the address in section 1. We will verify your identity — usually by confirming control of the telephone number or email address in question — and respond within the period required by law (generally 45 days in the United States). You may use an authorised agent.</p>
 <p>If you are a Caller, you may also ask the business you telephoned to delete your enquiry, and we will act on their instruction.</p>
 
 <h2>11. Children</h2>
-<p>Ring Wrench is a business service and is not directed to children. We do not knowingly collect personal information from anyone under 18. If we learn that we have, we will delete it.</p>
+<p>FrontlinePros is a business service and is not directed to children. We do not knowingly collect personal information from anyone under 18. If we learn that we have, we will delete it.</p>
 
 <h2>12. Where information is processed</h2>
 <p>We process and store information in the United States. If you contact a Subscriber from outside the United States, your information will be transferred to and processed in the United States, which may have different data-protection laws than your country.</p>
@@ -146,9 +146,9 @@ export default function Page() {
 
 <h2>15. Contact</h2>
 <p>Questions, requests or complaints:<br />
-<strong>ApexElement LLC — Ring Wrench</strong><br />
+<strong>ApexElement LLC — FrontlinePros</strong><br />
 <span className="fill">[BUSINESS ADDRESS]</span><br />
-<a href="mailto:privacy@ringwrench.com"><span className="fill">privacy@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
       </div>
       <Foot />
     </>

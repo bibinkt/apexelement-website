@@ -11,11 +11,11 @@ export default function Page() {
 <p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span></p>
 
 <div className="note">
-  <p><strong>You receive a text from Ring Wrench only because you telephoned a repair business and nobody was able to answer.</strong> The message comes from that business's own number and is a direct reply to your call. It is not marketing.</p>
+  <p><strong>You receive a text from FrontlinePros only because you telephoned a repair business and nobody was able to answer.</strong> The message comes from that business's own number and is a direct reply to your call. It is not marketing.</p>
 </div>
 
 <h2>Program description</h2>
-<p><strong>Program name:</strong> Ring Wrench Missed-Call Reply</p>
+<p><strong>Program name:</strong> FrontlinePros Missed-Call Reply</p>
 <p><strong>Operated by:</strong> ApexElement LLC on behalf of independent appliance repair, HVAC and plumbing businesses.</p>
 <p><strong>What it does:</strong> When you call a participating business and the call is not answered within approximately 20 seconds, the business's number sends you a text message. The exchange asks what equipment needs attention, what the problem is, and may ask you to send a photograph of the manufacturer's data plate so the technician knows the exact model before arriving. Your answers are passed to the business as a job card.</p>
 <p><strong>Message type:</strong> Conversational and transactional — customer service replies to an enquiry you initiated. <strong>No marketing or promotional messages are sent through this program.</strong></p>
@@ -33,7 +33,7 @@ export default function Page() {
 <p>Message frequency varies and depends on the conversation needed to describe the fault. A typical enquiry involves <strong>fewer than 10 messages</strong>. Messages are sent only in response to a missed call and to your subsequent replies. Recurring messages are not sent after the enquiry is complete.</p>
 
 <h2>Cost</h2>
-<p><strong>Message and data rates may apply.</strong> Ring Wrench does not charge you for these messages, but your mobile carrier's standard rates for text messages and data apply. Check your plan if you are unsure.</p>
+<p><strong>Message and data rates may apply.</strong> FrontlinePros does not charge you for these messages, but your mobile carrier's standard rates for text messages and data apply. Check your plan if you are unsure.</p>
 
 <h2>How to stop</h2>
 <div className="sample">Reply STOP to any message.</div>
@@ -43,7 +43,7 @@ export default function Page() {
 <h2>How to get help</h2>
 <div className="sample">Reply HELP to any message.</div>
 <p>You will receive a reply identifying the business and how to reach it. You may also contact us:</p>
-<p><a href="mailto:support@ringwrench.com"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<p><a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
 
 <h2>Carriers</h2>
 <p><strong>Carriers are not liable for delayed or undelivered messages.</strong> Delivery depends on your mobile carrier's network and is not guaranteed. This program is supported on major US carriers; carrier participation may change without notice.</p>
@@ -56,7 +56,7 @@ export default function Page() {
 <div className="note">
   <p><strong>No mobile information — including your telephone number, your opt-in status, or the content of your messages — is sold, rented, or shared with any third party or affiliate for that third party's marketing or promotional purposes.</strong> This information is shared only with the business you telephoned and with the service providers strictly necessary to deliver the messages.</p>
 </div>
-<p>Full detail is in our <a href="/ringwrench/privacy">Privacy Policy</a>.</p>
+<p>Full detail is in our <a href="/frontlinepros/privacy">Privacy Policy</a>.</p>
 <p><strong>Please do not send payment card details, bank details, identification numbers or health information by text.</strong> We never ask for them.</p>
 
 <h2>Not for emergencies</h2>
@@ -64,7 +64,7 @@ export default function Page() {
 
 <h2>Quick reference</h2>
 <table>
-  <tr><th>Program</th><td>Ring Wrench Missed-Call Reply</td></tr>
+  <tr><th>Program</th><td>FrontlinePros Missed-Call Reply</td></tr>
   <tr><th>Operator</th><td>ApexElement LLC</td></tr>
   <tr><th>Message type</th><td>Conversational / customer care — no marketing</td></tr>
   <tr><th>Consent</th><td>Your inbound call to the business</td></tr>
@@ -72,7 +72,7 @@ export default function Page() {
   <tr><th>Cost</th><td>Message and data rates may apply</td></tr>
   <tr><th>Opt out</th><td>Reply STOP</td></tr>
   <tr><th>Help</th><td>Reply HELP, or <span className="fill">support@[DOMAIN]</span></td></tr>
-  <tr><th>Privacy</th><td><a href="/ringwrench/privacy">Privacy Policy</a></td></tr>
+  <tr><th>Privacy</th><td><a href="/frontlinepros/privacy">Privacy Policy</a></td></tr>
 </table>
       </div>
       <Foot />

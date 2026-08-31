@@ -11,14 +11,14 @@ export default function Page() {
 <p className="dates"><strong>Effective date:</strong> <span className="fill">[DATE]</span> &nbsp;·&nbsp; <strong>Last updated:</strong> <span className="fill">[DATE]</span></p>
 
 <div className="note">
-  <p><strong>Plain summary.</strong> Ring Wrench texts back the callers your shop doesn't answer, from your own number. You keep your number and your phone company. You can switch it off whenever you like. You are responsible for what your business says to your customers — including the messages sent on your behalf — and for holding up your end of the law on texting.</p>
+  <p><strong>Plain summary.</strong> FrontlinePros texts back the callers your shop doesn't answer, from your own number. You keep your number and your phone company. You can switch it off whenever you like. You are responsible for what your business says to your customers — including the messages sent on your behalf — and for holding up your end of the law on texting.</p>
 </div>
 
 <h2>1. Agreement</h2>
-<p>These Terms of Service ("Terms") are a binding agreement between <strong>ApexElement LLC</strong>, a limited liability company registered in <span className="fill">[STATE]</span> ("Ring Wrench", "we", "us"), and the business that subscribes to the service ("you", "Subscriber"). By creating an account, activating call forwarding to our service, or using Ring Wrench, you accept these Terms. If you are accepting on behalf of a company, you confirm you have authority to bind it.</p>
+<p>These Terms of Service ("Terms") are a binding agreement between <strong>ApexElement LLC</strong>, a limited liability company registered in <span className="fill">[STATE]</span> ("FrontlinePros", "we", "us"), and the business that subscribes to the service ("you", "Subscriber"). By creating an account, activating call forwarding to our service, or using FrontlinePros, you accept these Terms. If you are accepting on behalf of a company, you confirm you have authority to bind it.</p>
 
 <h2>2. What the service does</h2>
-<p>Ring Wrench detects a call to your business number that goes unanswered, and sends the caller a text message from your business number. It exchanges a short series of messages to establish what equipment is involved and what the fault is, may request a photograph of the manufacturer's data plate, and delivers a job card summarising the enquiry to you.</p>
+<p>FrontlinePros detects a call to your business number that goes unanswered, and sends the caller a text message from your business number. It exchanges a short series of messages to establish what equipment is involved and what the fault is, may request a photograph of the manufacturer's data plate, and delivers a job card summarising the enquiry to you.</p>
 <p>The service is provided by automated systems, including machine-learning models.</p>
 
 <h3>2.1 What the service is not</h3>
@@ -35,7 +35,7 @@ export default function Page() {
 
 <h2>4. Messaging compliance — your responsibilities</h2>
 <div className="note">
-  <p>Messages sent by Ring Wrench go out from <strong>your</strong> business number and are, in law, messages from your business. This section matters.</p>
+  <p>Messages sent by FrontlinePros go out from <strong>your</strong> business number and are, in law, messages from your business. This section matters.</p>
 </div>
 <p>You agree that you will:</p>
 <ul>
@@ -49,11 +49,11 @@ export default function Page() {
 <p>You are responsible for the content of messages sent from your number and for the consequences of your use of the service. <strong>If your use of the service causes a claim against us — including a TCPA claim — section 12 (Indemnity) applies.</strong></p>
 
 <h2>5. Accounts and access</h2>
-<p>You must provide accurate registration information and keep it current. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Tell us promptly at <a href="mailto:support@ringwrench.com"><span className="fill">support@[DOMAIN]</span></a> if you suspect unauthorised access.</p>
+<p>You must provide accurate registration information and keep it current. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Tell us promptly at <a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> if you suspect unauthorised access.</p>
 
 <h2>6. Customer data and confidentiality</h2>
 <p>Information collected from your callers — their numbers, messages, photographs and job cards — is <strong>your</strong> business's customer data. As between you and us, you own it. You grant us a limited licence to process it solely to provide the service, to maintain and secure it, and to comply with law.</p>
-<p>We will not use your customer data to market to your customers, and we will not sell it. Our handling of personal information is described in the <a href="/ringwrench/privacy">Privacy Policy</a>, which forms part of these Terms.</p>
+<p>We will not use your customer data to market to your customers, and we will not sell it. Our handling of personal information is described in the <a href="/frontlinepros/privacy">Privacy Policy</a>, which forms part of these Terms.</p>
 <p>You are responsible for having a lawful basis to collect your customers' information and for your own privacy obligations to them.</p>
 
 <h2>7. Founding member offer</h2>
@@ -79,7 +79,7 @@ export default function Page() {
 
 <h2>9. Availability and support</h2>
 <p>We aim to keep the service running continuously but we do not promise any specific uptime, and we provide the service <strong>without a service-level agreement</strong>. We may perform maintenance, and we will try to schedule disruptive work outside normal business hours where practical.</p>
-<p>Support is provided by email at <a href="mailto:support@ringwrench.com"><span className="fill">support@[DOMAIN]</span></a> during normal business hours.</p>
+<p>Support is provided by email at <a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> during normal business hours.</p>
 
 <h2>10. Acceptable use</h2>
 <p>You will not, and will not permit anyone else to: reverse engineer, decompile or attempt to derive the source code of the service; resell, sublicense or provide the service to a third party without our written agreement; use the service to build a competing product; interfere with or place unreasonable load on our infrastructure; circumvent usage limits; or use the service in violation of any law or carrier requirement.</p>
@@ -126,9 +126,9 @@ export default function Page() {
 </ul>
 
 <h2>17. Contact</h2>
-<p><strong>ApexElement LLC — Ring Wrench</strong><br />
+<p><strong>ApexElement LLC — FrontlinePros</strong><br />
 <span className="fill">[BUSINESS ADDRESS]</span><br />
-<a href="mailto:support@ringwrench.com"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
       </div>
       <Foot />
     </>

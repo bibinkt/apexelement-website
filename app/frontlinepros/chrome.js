@@ -7,7 +7,7 @@ export function Mast() {
       <div className="shell mast-in">
         <div>
           <Link href={base} className="logo">
-            Ring <span>Wrench</span>
+            Frontline<span>Pros</span>
           </Link>
           <div className="byline">A product of {brand.LEGAL_ENTITY}</div>
         </div>

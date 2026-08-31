@@ -108,7 +108,7 @@ export default function Contact() {
           )}
           <p className="hint">
             We use what you send here to reply to you about {brand.NAME}. Nothing else. See our{' '}
-            <a href="/ringwrench/privacy">Privacy Policy</a>.
+            <a href="/frontlinepros/privacy">Privacy Policy</a>.
           </p>
         </form>
 

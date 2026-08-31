@@ -1,4 +1,4 @@
-/* Ring Wrench — plain trade-catalogue styling. No gradients, no glow, no startup gloss. */
+/* FrontlinePros — plain trade-catalogue styling. No gradients, no glow, no startup gloss. */
 .rw {
   --ink: #17170f;
   --body: #33322b;
@@ -157,4 +157,60 @@
   .rw:not([data-theme="light"]) textarea { background: #1c1a12; }
   .rw:not([data-theme="light"]) .formmsg.ok { background: #1d2c20; color: #b7dcbd; }
   .rw:not([data-theme="light"]) .formmsg.err { background: #33201a; color: #e8b49c; }
+}
+
+/* ── hero layout + kicker ─────────────────────────────── */
+.rw .kicker { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent);
+  font-weight:700; margin-bottom:14px; }
+.rw .hero-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap:52px; align-items:start; }
+.rw .btn-next { margin-left:12px; }
+.rw .trust { margin-top:22px; font-size:13.5px; color:var(--muted);
+  border-top:1px solid var(--rule); padding-top:14px; }
+
+/* ── text-thread mockup ───────────────────────────────── */
+.rw .phone { border:2px solid var(--ink); background:#fff; }
+.rw .phone-top { display:flex; align-items:center; gap:10px; padding:11px 14px;
+  border-bottom:2px solid var(--ink); background:var(--band); }
+.rw .phone-top b { display:block; font-size:14.5px; color:var(--ink); }
+.rw .phone-top em { font-style:normal; font-size:12.5px; color:var(--muted); }
+.rw .dot { width:26px; height:26px; border:1.5px solid var(--ink); border-radius:50%;
+  flex:0 0 26px; }
+.rw .thread { padding:14px; display:flex; flex-direction:column; gap:8px; }
+.rw .stamp { text-align:center; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); margin:4px 0; }
+.rw .msg { max-width:82%; padding:9px 12px; font-size:14px; line-height:1.45; border:1px solid var(--ink); }
+.rw .msg.out { align-self:flex-start; background:var(--band); }
+.rw .msg.in { align-self:flex-end; background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.rw .msg.photo { display:flex; align-items:center; gap:8px; font-family:ui-monospace,Menlo,monospace;
+  font-size:13px; }
+
+/* ── job card extras ──────────────────────────────────── */
+.rw .row .sub { font-size:13px; color:var(--muted); }
+.rw .row .v.full { width:100%; }
+
+/* ── founding offer ───────────────────────────────────── */
+.rw .offer-grid { display:grid; grid-template-columns:1fr auto; gap:44px; align-items:center; }
+.rw .tally { border:2px solid var(--ink); background:#fff; padding:20px 26px; text-align:center;
+  min-width:190px; }
+.rw .tally-head { font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); font-weight:700; }
+.rw .tally-marks { display:flex; justify-content:center; gap:7px; margin:14px 0 10px; }
+.rw .tally-marks span { font-size:38px; line-height:1; color:var(--accent); font-weight:700; }
+.rw .tally-foot { font-size:14px; color:var(--ink); font-weight:700;
+  border-top:1px solid var(--rule); padding-top:10px; }
+
+/* ── closer ───────────────────────────────────────────── */
+.rw .closer { border-bottom:0; text-align:center; padding:52px 0 64px; }
+.rw .closer h3 { font-size:26px; margin-bottom:20px; }
+.rw .closer p { margin:0 auto; }
+
+@media (max-width: 860px) {
+  .rw .hero-grid { grid-template-columns:1fr; gap:34px; }
+  .rw .offer-grid { grid-template-columns:1fr; gap:26px; }
+  .rw .tally { min-width:0; }
+  .rw .btn-next { margin-left:0; margin-top:10px; display:inline-block; }
+}
+@media (prefers-color-scheme: dark) {
+  .rw:not([data-theme="light"]) .phone,
+  .rw:not([data-theme="light"]) .tally { background:#1c1a12; }
 }
