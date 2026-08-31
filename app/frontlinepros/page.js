@@ -23,7 +23,7 @@ export default function FrontlinePros() {
             <h1>The call you missed just texted you back.</h1>
             <p className="lede">
               When your phone rings and everyone&rsquo;s on a job, {brand.NAME} answers by text
-              within seconds &mdash; from your own number. It holds the conversation for you: what
+              within seconds &mdash; from a number that names your shop. It holds the conversation for you: what
               broke, how long it&rsquo;s been going on, where they are, when they&rsquo;re free, and
               a photo when one would help. Then it hands you a job card, before the customer has
               called anyone else.
@@ -118,7 +118,7 @@ export default function FrontlinePros() {
             </li>
             <li>
               <b>If nobody picks up after 20 seconds, we text the caller.</b>
-              From your business number, not some 1-800 line.
+              From a number that names your shop, not some 1-800 line.
             </li>
             <li>
               <b>It asks the questions you would have asked.</b>

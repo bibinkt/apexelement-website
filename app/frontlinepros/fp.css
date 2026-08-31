@@ -99,6 +99,10 @@
 .rw .btn:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff; text-decoration: none; }
 .rw .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-2); }
 .rw .btn-ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+/* the hero sits on a dark veil in every theme, so its ghost button can't
+   inherit --ink — in light mode that renders dark-on-dark and vanishes */
+.rw .hero .btn-ghost { color: #fff; border-color: rgba(255, 255, 255, .48); }
+.rw .hero .btn-ghost:hover { background: #fff; border-color: #fff; color: #14140e; }
 
 /* ── hero ─────────────────────────────────────────────── */
 .rw .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--rule); }
@@ -382,7 +386,8 @@
     background: linear-gradient(96deg, var(--paper) 0%, var(--paper) 40%,
       rgba(19,18,8,.96) 52%, rgba(19,18,8,.74) 72%, rgba(19,18,8,.42) 100%);
   }
-  .rw:not([data-theme="light"]) .btn { color: #17160d; }
+  /* ghost buttons keep their own colour — this is for the solid accent button */
+  .rw:not([data-theme="light"]) .btn:not(.btn-ghost) { color: #17160d; }
   .rw:not([data-theme="light"]) .optin { background: rgba(255, 255, 255, .035); }
   .rw:not([data-theme="light"]) .formmsg.ok { background: #1d2c20; color: #b7dcbd; }
   .rw:not([data-theme="light"]) .formmsg.err { background: #33201a; color: #e8b49c; }

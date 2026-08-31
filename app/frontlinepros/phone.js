@@ -119,7 +119,7 @@ export function PhoneMockup() {
           <div className="homebar" />
         </div>
       </div>
-      <p className="device-cap">What your customer sees, from your number.</p>
+      <p className="device-cap">What your customer sees, from a number that names your shop.</p>
     </div>
   );
 }
