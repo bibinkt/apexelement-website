@@ -3,6 +3,7 @@ import { Mast, Foot } from './chrome';
 import { productBase } from './nav';
 import { PhoneMockup } from './phone';
 import { JobCardPhone } from './jobcard';
+import AskMore from './askmore';
 
 const IMG = (id, w = 1200) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -142,7 +143,7 @@ export default function FrontlinePros() {
             The photo is one question out of many, and on plenty of jobs it never asks for one. What
             it&rsquo;s really doing is the front-desk work you don&rsquo;t have time for.
           </p>
-          <div className="ask-grid">
+          <div className="ask-grid" id="ask-grid">
             <div>
               <b>Qualifies the job</b>
               <span>
@@ -186,6 +187,7 @@ export default function FrontlinePros() {
               </span>
             </div>
           </div>
+          <AskMore targetId="ask-grid" />
         </div>
       </section>
 

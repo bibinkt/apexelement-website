@@ -88,10 +88,10 @@ export function PhoneMockup() {
                 data-plate.jpg
               </span>
             </div>
-            <div className="bub them">
+            <div className="bub them phone-trim">
               Perfect — Whirlpool WRF535SWHZ04. Door sealing shut? Breaker on?
             </div>
-            <div className="bub me">Both fine</div>
+            <div className="bub me phone-trim">Both fine</div>
             <div className="bub them">
               Thanks. Tom will call you back within the hour.
             </div>

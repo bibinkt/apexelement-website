@@ -815,3 +815,116 @@
   background: var(--band); font-size: 13.5px; line-height: 1.6; }
 
 @media (max-width: 1000px) { .rw .simgrid { grid-template-columns: 1fr; } }
+
+/* ── mobile: cut the scroll ─────────────────────────────
+   Measured 11,985px — 14 phone screens — before this block. A shop owner
+   should understand the product in two or three swipes, not fourteen.
+   Desktop is untouched: everything here is inside a max-width query. */
+@media (max-width: 700px) {
+  /* tighter rhythm everywhere — this alone is ~1/4 of the saving */
+  .rw section { padding: 38px 0; }
+  .rw h2 { margin-bottom: 16px; padding-bottom: 9px; }
+  .rw h3, .rw .closer h3 { font-size: 23px; margin-bottom: 12px; }
+  .rw section p { font-size: 16px; }
+  .rw .lede { font-size: 16.5px; margin-bottom: 24px; }
+
+  /* hero: the phone is the pitch, but it does not need to be 700px tall */
+  .rw .hero-grid { padding: 30px 24px 34px; gap: 26px; }
+  .rw .hero h1 { font-size: 29px; margin-bottom: 14px; }
+  .rw .device { max-width: 260px; margin: 0 auto; }
+  .rw .device-screen { min-height: 380px; }
+  .rw .device-cap { font-size: 11px; }
+  .rw .trust { margin-top: 22px; padding-top: 12px; }
+  .rw .hero-note { font-size: 13px; }
+
+  /* photos: landscape crops instead of tall portraits */
+  .rw .shot img { aspect-ratio: 16/9; }
+  .rw .trade-grid figure img { aspect-ratio: 16/9; }
+  .rw .trade-grid figcaption { padding: 14px 16px; }
+
+  /* card blocks: less padding, same information */
+  .rw ol.steps li { padding: 18px 20px 18px 60px; }
+  .rw ol.steps li::before { top: 17px; left: 20px; }
+  .rw ol.steps b { font-size: 17px; }
+  .rw .ask-grid > div, .rw .keeps li { padding: 17px 18px; }
+  .rw .ask-grid b, .rw .keeps b { font-size: 16px; }
+  .rw .ask-grid span, .rw .keeps span { font-size: 14px; }
+  .rw .asklede { margin-bottom: 20px; }
+
+  .rw .statline > div { padding: 12px 16px; }
+  .rw .statline b { font-size: 22px; }
+
+  /* footer was 639px of links on a phone */
+  .rw footer { padding: 34px 0 26px; }
+  .rw .foot-grid { gap: 20px; padding-bottom: 24px; }
+}
+
+/* Below 700px the six "what it asks" cards are the single longest block on
+   the page. Show the three that sell it; the rest stay one tap away. */
+@media (max-width: 700px) {
+  .rw .ask-grid > div:nth-child(n + 4) { display: none; }
+  .rw .ask-more { display: block; }
+  .rw .ask-grid.open > div:nth-child(n + 4) { display: block; }
+}
+.rw .ask-more { display: none; margin-top: 14px; font-size: 14px; }
+.rw .ask-more button {
+  font: inherit; font-size: 14px; background: none; border: 0; padding: 0;
+  color: var(--accent); text-decoration: underline; cursor: pointer;
+}
+
+/* ── mobile, second pass ────────────────────────────────
+   The first pass only took 14 screens to 12, because the phone mockups size
+   to their content, not to min-height. So: fewer bubbles, tighter type, and
+   the decorative photography stands down on a phone. */
+@media (max-width: 700px) {
+  /* Keep the beats the story needs — opening, the complaint, the photo ask,
+     the photo, the hand-off — and drop only the screening exchange. Targeted
+     by class: nth-child counted the day-stamp and missed-call rows too, which
+     silently removed the complaint and the photo and left the model number
+     appearing out of nowhere. */
+  .rw .phone-trim { display: none; }
+  .rw .device-screen { min-height: 0; }
+  .rw .thread { padding: 10px 11px; gap: 6px; }
+  .rw .bub { font-size: 13px; padding: 8px 11px; }
+  .rw .convo-head { padding: 8px 10px 10px; }
+  .rw .inputbar { padding: 8px 10px; }
+
+  /* the job-card phone: same idea, show the card not the chrome */
+  .rw .card-phone .device-screen { min-height: 0; }
+  .rw .jc-body { padding: 12px 13px; font-size: 12px; }
+
+  /* photography is decorative here; the words carry the page on a phone */
+  .rw .split .shot { display: none; }
+  .rw .trade-grid figure img { display: none; }
+  .rw .trade-grid { border-top: 1px solid var(--rule); }
+  .rw .trade-grid figure { border: 0; border-bottom: 1px solid var(--rule); margin: 0; }
+  .rw .trade-grid figcaption { padding: 13px 0; }
+  .rw .trade-grid figcaption b { font-size: 16px; }
+  .rw .trade-grid figcaption span { font-size: 14px; }
+}
+
+/* ── mobile, third pass: the job-card mockup ────────────
+   .jc-scroll is flex:1 0 auto, so the device grows to whatever the card needs.
+   Tighten the card itself rather than the shell around it. */
+@media (max-width: 700px) {
+  .rw .card-phone .jc-scroll { padding: 9px; }
+  .rw .card-phone .jc-row { padding: 5px 0; }
+  .rw .card-phone .jc-row .v { font-size: 11.5px; }
+  .rw .card-phone .jc-top { padding: 10px 13px; }
+  .rw .card-phone .jc-photo { padding: 0 10px 10px; }
+  .rw .card-phone .jc-photo img { max-height: 96px; object-fit: cover; width: 100%; }
+  .rw .cardsec .split-grid { gap: 22px; }
+  .rw .caveat { font-size: 14px; }
+}
+
+
+/* ── mobile masthead ────────────────────────────────────
+   The two nav links each wrapped onto two lines and pushed the call button
+   into a third. On a phone the only thing that matters up there is the call. */
+@media (max-width: 700px) {
+  .rw .mast-in { padding: 11px 20px; gap: 12px; }
+  .rw .mast nav a:not(.nav-cta) { display: none; }
+  .rw .nav-cta { white-space: nowrap; font-size: 13.5px; padding: 8px 13px; }
+  .rw .logo b { font-size: 18px; }
+  .rw .logo em { font-size: 9.5px; }
+}
