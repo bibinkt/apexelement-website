@@ -101,7 +101,7 @@ export default function ContactForm({ base = '' }) {
           {status === 'err' && (
             <div className="formmsg err">
               That didn&rsquo;t send. Email us directly at{' '}
-              <a href={`mailto:${brand.EMAIL_SUPPORT}`}>{brand.EMAIL_SUPPORT}</a>.
+              <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a>.
             </div>
           )}
           <p className="hint">
@@ -114,13 +114,10 @@ export default function ContactForm({ base = '' }) {
         <p>
           <strong>{brand.LEGAL_ENTITY}</strong>
           <br />
-          {brand.ADDRESS}
-          <br />
-          <a href={`mailto:${brand.EMAIL_SUPPORT}`}>{brand.EMAIL_SUPPORT}</a> &middot;{' '}
-          {brand.PHONE}
+          <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a>
         </p>
         <p>
-          Privacy requests: <a href={`mailto:${brand.EMAIL_PRIVACY}`}>{brand.EMAIL_PRIVACY}</a>
+          Privacy requests: <a href={`mailto:${brand.EMAIL}`}>{brand.EMAIL}</a>
         </p>
       </div>
     </>

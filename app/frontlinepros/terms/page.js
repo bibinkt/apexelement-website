@@ -21,7 +21,7 @@ export default function Page() {
 </div>
 
 <h2>1. Agreement</h2>
-<p>These Terms of Service ("Terms") are a binding agreement between <strong>ApexElement LLC</strong>, a limited liability company registered in <span className="fill">[STATE]</span> ("FrontlinePros", "we", "us"), and the business that subscribes to the service ("you", "Subscriber"). By creating an account, activating call forwarding to our service, or using FrontlinePros, you accept these Terms. If you are accepting on behalf of a company, you confirm you have authority to bind it.</p>
+<p>These Terms of Service ("Terms") are a binding agreement between <strong>ApexElement LLC</strong>, a limited liability company registered in {brand.STATE} ("FrontlinePros", "we", "us"), and the business that subscribes to the service ("you", "Subscriber"). By creating an account, activating call forwarding to our service, or using FrontlinePros, you accept these Terms. If you are accepting on behalf of a company, you confirm you have authority to bind it.</p>
 
 <h2>2. What the service does</h2>
 <p>FrontlinePros detects a call to your business number that goes unanswered, and sends the caller a text message from your business number. It exchanges a short series of messages to establish what equipment is involved and what the fault is, may request a photograph of the manufacturer's data plate, and delivers a job card summarising the enquiry to you.</p>
@@ -55,7 +55,7 @@ export default function Page() {
 <p>You are responsible for the content of messages sent from your number and for the consequences of your use of the service. <strong>If your use of the service causes a claim against us — including a TCPA claim — section 12 (Indemnity) applies.</strong></p>
 
 <h2>5. Accounts and access</h2>
-<p>You must provide accurate registration information and keep it current. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Tell us promptly at <a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> if you suspect unauthorised access.</p>
+<p>You must provide accurate registration information and keep it current. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Tell us promptly at <a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a> if you suspect unauthorised access.</p>
 
 <h2>6. Customer data and confidentiality</h2>
 <p>Information collected from your callers — their numbers, messages, photographs and job cards — is <strong>your</strong> business's customer data. As between you and us, you own it. You grant us a limited licence to process it solely to provide the service, to maintain and secure it, and to comply with law.</p>
@@ -80,12 +80,12 @@ export default function Page() {
   <li><strong>You may cancel at any time</strong>, effective at the end of the current billing period. There is no cancellation fee and no minimum term.</li>
   <li>We do not provide refunds for partial months, except where required by law.</li>
   <li>If payment fails we may suspend the service after giving you notice and a reasonable opportunity to correct it.</li>
-  <li>We may change fees on <span className="fill">[30]</span> days' written notice. If you do not accept a change, you may cancel before it takes effect.</li>
+  <li>We may change fees on {brand.NOTICE_DAYS_LONG} days' written notice. If you do not accept a change, you may cancel before it takes effect.</li>
 </ul>
 
 <h2>9. Availability and support</h2>
 <p>We aim to keep the service running continuously but we do not promise any specific uptime, and we provide the service <strong>without a service-level agreement</strong>. We may perform maintenance, and we will try to schedule disruptive work outside normal business hours where practical.</p>
-<p>Support is provided by email at <a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> during normal business hours.</p>
+<p>Support is provided by email at <a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a> during normal business hours.</p>
 
 <h2>10. Acceptable use</h2>
 <p>You will not, and will not permit anyone else to: reverse engineer, decompile or attempt to derive the source code of the service; resell, sublicense or provide the service to a third party without our written agreement; use the service to build a competing product; interfere with or place unreasonable load on our infrastructure; circumvent usage limits; or use the service in violation of any law or carrier requirement.</p>
@@ -111,19 +111,19 @@ export default function Page() {
 
 <h2>14. Term, suspension and termination</h2>
 <p>These Terms apply for as long as you use the service. You may terminate at any time by cancelling in your account or by writing to us, and by disabling call forwarding on your line.</p>
-<p>We may terminate or suspend for breach as described above, and we may discontinue the service entirely on <span className="fill">[30]</span> days' notice, in which case we will refund any prepaid fees covering the period after termination.</p>
-<p>On termination we will, on request made within <span className="fill">[30]</span> days, provide an export of your job cards. After that period we may delete your data in accordance with the Privacy Policy.</p>
+<p>We may terminate or suspend for breach as described above, and we may discontinue the service entirely on {brand.NOTICE_DAYS_LONG} days' notice, in which case we will refund any prepaid fees covering the period after termination.</p>
+<p>On termination we will, on request made within {brand.NOTICE_DAYS_LONG} days, provide an export of your job cards. After that period we may delete your data in accordance with the Privacy Policy.</p>
 <p>Sections 6, 11, 12, 13, 15 and 16 survive termination.</p>
 
 <h2>15. Governing law and disputes</h2>
-<p>These Terms are governed by the laws of the State of <span className="fill">[STATE]</span>, without regard to conflict-of-laws rules. The parties submit to the exclusive jurisdiction of the state and federal courts located in <span className="fill">[COUNTY, STATE]</span>.</p>
+<p>These Terms are governed by the laws of the State of {brand.STATE}, without regard to conflict-of-laws rules. The parties submit to the exclusive jurisdiction of the state and federal courts located in {brand.COUNTY_STATE}.</p>
 <p>Before filing any claim, the parties agree to attempt in good faith to resolve the dispute informally by written notice for at least thirty (30) days.</p>
 <p className="caps" style={{marginTop: '14px'}}><strong>JURY TRIAL AND CLASS ACTION WAIVER.</strong> TO THE EXTENT PERMITTED BY LAW, EACH PARTY WAIVES ANY RIGHT TO A JURY TRIAL, AND AGREES THAT CLAIMS WILL BE BROUGHT ONLY IN AN INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY CLASS OR REPRESENTATIVE PROCEEDING.</p>
 
 <h2>16. General</h2>
 <ul>
   <li><strong>Entire agreement.</strong> These Terms, the Privacy Policy and the Messaging Terms are the entire agreement between us on this subject.</li>
-  <li><strong>Changes.</strong> We may update these Terms on <span className="fill">[14]</span> days' notice by email or in-product. Continued use after the effective date is acceptance.</li>
+  <li><strong>Changes.</strong> We may update these Terms on {brand.NOTICE_DAYS} days' notice by email or in-product. Continued use after the effective date is acceptance.</li>
   <li><strong>Assignment.</strong> You may not assign these Terms without our written consent. We may assign them to an affiliate or in connection with a merger or sale of assets.</li>
   <li><strong>Severability.</strong> If any provision is unenforceable, the rest remains in effect.</li>
   <li><strong>No waiver.</strong> Failure to enforce a provision is not a waiver of it.</li>
@@ -133,8 +133,8 @@ export default function Page() {
 
 <h2>17. Contact</h2>
 <p><strong>ApexElement LLC — FrontlinePros</strong><br />
-<span className="fill">[BUSINESS ADDRESS]</span><br />
-<a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a><br />
+Or use the <a href={`${b}/contact`}>contact form</a> on this site.</p>
       </div>
       <Foot />
     </>

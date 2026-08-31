@@ -49,7 +49,7 @@ export default function Page() {
 <h2>How to get help</h2>
 <div className="sample">Reply HELP to any message.</div>
 <p>You will receive a reply identifying the business and how to reach it. You may also contact us:</p>
-<p><a href="mailto:support@frontlinepros.apexelement.ai"><span className="fill">support@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<p><a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a> &middot; or the <a href={`${b}/contact`}>contact form</a> on this site.</p>
 
 <h2>Carriers</h2>
 <p><strong>Carriers are not liable for delayed or undelivered messages.</strong> Delivery depends on your mobile carrier's network and is not guaranteed. This program is supported on major US carriers; carrier participation may change without notice.</p>
@@ -77,7 +77,7 @@ export default function Page() {
   <tr><th>Frequency</th><td>Varies; typically under 10 messages per enquiry</td></tr>
   <tr><th>Cost</th><td>Message and data rates may apply</td></tr>
   <tr><th>Opt out</th><td>Reply STOP</td></tr>
-  <tr><th>Help</th><td>Reply HELP, or <span className="fill">support@[DOMAIN]</span></td></tr>
+  <tr><th>Help</th><td>Reply HELP, or {brand.EMAIL}</td></tr>
   <tr><th>Privacy</th><td><a href={`${b}/privacy`}>Privacy Policy</a></td></tr>
 </table>
       </div>

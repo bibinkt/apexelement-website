@@ -2,6 +2,7 @@ import { brand } from './brand';
 import { Mast, Foot } from './chrome';
 import { productBase } from './nav';
 import { PhoneMockup } from './phone';
+import { JobCardPhone } from './jobcard';
 
 const IMG = (id, w = 1200) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -123,47 +124,7 @@ export default function FrontlinePros() {
               model number.
             </p>
           </div>
-          <div className="card">
-            <div className="card-head">
-              <span>Job Card</span>
-              <span>No. 1042</span>
-            </div>
-            <div className="card-body">
-              <div className="row">
-                <div className="k">Customer</div>
-                <div className="v">Dana Whitfield &middot; (407) 555-0148</div>
-              </div>
-              <div className="row">
-                <div className="k">Address</div>
-                <div className="v">218 Palmetto Ln, Winter Park, FL 32789</div>
-              </div>
-              <div className="row">
-                <div className="k">Equipment</div>
-                <div className="v">
-                  Whirlpool &middot; WRF535SWHZ04 &middot; Serial HRB4102877
-                  <br />
-                  <span className="sub">read from data plate photo</span>
-                </div>
-              </div>
-              <div className="row">
-                <div className="k">Problem</div>
-                <div className="v">
-                  &ldquo;Fridge side stopped getting cold since yesterday, freezer still fine,
-                  clicking noise every few minutes.&rdquo;
-                </div>
-              </div>
-              <div className="row">
-                <div className="k">Screening</div>
-                <div className="v">Door sealing &middot; breaker not tripped</div>
-              </div>
-              <div className="row">
-                <div className="k">Photo</div>
-                <div className="v full">
-                  <img className="plate" src={IMG(5691659, 700)} alt="Data plate photo" loading="lazy" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <JobCardPhone />
         </div>
       </section>
 

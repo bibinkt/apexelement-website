@@ -1,6 +1,8 @@
 /* A realistic phone showing what the CUSTOMER sees:
    grey bubbles = the shop's automated replies, green = the customer typing back (SMS). */
 
+import { DataPlate } from './plate';
+
 export function PhoneMockup() {
   return (
     <div className="device-wrap">
@@ -74,17 +76,17 @@ export function PhoneMockup() {
             <div className="bub them">
               Got it. Can you send a photo of the sticker with the model number?
             </div>
-            <div className="bub me att">
-              <svg width="13" height="13" viewBox="0 0 14 14" aria-hidden="true">
-                <path
-                  d="M12 4.2h-2L9.2 3H4.8L4 4.2H2a1 1 0 0 0-1 1v5.6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5.2a1 1 0 0 0-1-1z"
-                  stroke="currentColor"
-                  strokeWidth="1.1"
-                  fill="none"
-                />
-                <circle cx="7" cy="8" r="2.1" stroke="currentColor" strokeWidth="1.1" fill="none" />
-              </svg>
-              data-plate.jpg
+            <div className="bub me imgmsg">
+              <DataPlate small />
+              <span className="shotname">
+                <svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true">
+                  <path
+                    d="M12 4.2h-2L9.2 3H4.8L4 4.2H2a1 1 0 0 0-1 1v5.6a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5.2a1 1 0 0 0-1-1z"
+                    stroke="currentColor" strokeWidth="1.1" fill="none" />
+                  <circle cx="7" cy="8" r="2.1" stroke="currentColor" strokeWidth="1.1" fill="none" />
+                </svg>
+                data-plate.jpg
+              </span>
             </div>
             <div className="bub them">
               Perfect — Whirlpool WRF535SWHZ04. Door sealing shut? Breaker on?

@@ -22,10 +22,9 @@ export default function Page() {
 </div>
 
 <h2>1. Who we are</h2>
-<p>FrontlinePros is a service operated by <strong>ApexElement LLC</strong> ("FrontlinePros", "we", "us", "our"), a limited liability company registered in <span className="fill">[STATE]</span>, United States.</p>
-<p><strong>Registered address:</strong> <span className="fill">[BUSINESS ADDRESS]</span><br />
-<strong>Privacy contact:</strong> <a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a><br />
-<strong>Phone:</strong> <span className="fill">[PHONE]</span></p>
+<p>FrontlinePros is a service operated by <strong>ApexElement LLC</strong> ("FrontlinePros", "we", "us", "our"), a limited liability company registered in {brand.STATE}, United States.</p>
+<p><strong>Privacy contact:</strong> <a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a><br />
+You can also reach us through the <a href={`${b}/contact`}>contact form</a> on this site.</p>
 
 <h2>2. Two kinds of people this policy covers</h2>
 <p>FrontlinePros sits between a service business and the people who call it, so this policy covers two separate groups. Your rights differ slightly depending on which one you are.</p>
@@ -116,9 +115,9 @@ export default function Page() {
 <h2>8. How long we keep information</h2>
 <table>
   <tr><th style={{width: '46%'}}>Category</th><th>Retention</th></tr>
-  <tr><td>Caller messages, photographs and job cards</td><td><span className="fill">[e.g. 24 months]</span> from the date of the enquiry, unless the Subscriber deletes them sooner or the Caller requests deletion</td></tr>
+  <tr><td>Caller messages, photographs and job cards</td><td>{brand.RETENTION_MESSAGES} from the date of the enquiry, unless the Subscriber deletes them sooner or the Caller requests deletion</td></tr>
   <tr><td>Opt-out (STOP) records</td><td>Retained indefinitely, so the request continues to be honoured</td></tr>
-  <tr><td>Subscriber account records</td><td>Duration of the subscription plus <span className="fill">[e.g. 12 months]</span></td></tr>
+  <tr><td>Subscriber account records</td><td>Duration of the subscription plus {brand.RETENTION_ACCOUNT}</td></tr>
   <tr><td>Billing and tax records</td><td>As required by law, typically seven years</td></tr>
 </table>
 
@@ -135,7 +134,7 @@ export default function Page() {
   <li><strong>Opt out</strong> of sale or sharing — though as stated above, we do not sell or share personal information.</li>
   <li><strong>Not be discriminated against</strong> for exercising any of these rights.</li>
 </ul>
-<p>To exercise any right, email <a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a> or write to us at the address in section 1. We will verify your identity — usually by confirming control of the telephone number or email address in question — and respond within the period required by law (generally 45 days in the United States). You may use an authorised agent.</p>
+<p>To exercise any right, email us at <a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a> or use the contact form on our site. We will verify your identity — usually by confirming control of the telephone number or email address in question — and respond within the period required by law (generally 45 days in the United States). You may use an authorised agent.</p>
 <p>If you are a Caller, you may also ask the business you telephoned to delete your enquiry, and we will act on their instruction.</p>
 
 <h2>11. Children</h2>
@@ -148,13 +147,13 @@ export default function Page() {
 <p>Our website may link to other sites. We are not responsible for their content or privacy practices, and this policy does not apply to them.</p>
 
 <h2>14. Changes to this policy</h2>
-<p>We may update this policy. We will change the "last updated" date above, and for material changes affecting Subscribers we will give notice by email or in the product at least <span className="fill">[14]</span> days before the change takes effect. Continuing to use the service after a change takes effect means you accept the updated policy.</p>
+<p>We may update this policy. We will change the "last updated" date above, and for material changes affecting Subscribers we will give notice by email or in the product at least {brand.NOTICE_DAYS} days before the change takes effect. Continuing to use the service after a change takes effect means you accept the updated policy.</p>
 
 <h2>15. Contact</h2>
 <p>Questions, requests or complaints:<br />
 <strong>ApexElement LLC — FrontlinePros</strong><br />
-<span className="fill">[BUSINESS ADDRESS]</span><br />
-<a href="mailto:privacy@frontlinepros.apexelement.ai"><span className="fill">privacy@[DOMAIN]</span></a> · <span className="fill">[PHONE]</span></p>
+<a href="mailto:hello@apexelement.ai">{brand.EMAIL}</a><br />
+Or use the <a href={`${b}/contact`}>contact form</a> on this site.</p>
       </div>
       <Foot />
     </>
