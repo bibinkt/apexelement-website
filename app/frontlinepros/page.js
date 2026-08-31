@@ -216,7 +216,7 @@ export default function FrontlinePros() {
           <ul className="keeps">
             <li>
               <b>You keep your number.</b>
-              <span>No porting, no new line, nothing to print again.</span>
+              <span>Nothing to port, nothing to re-print, nothing new to answer.</span>
             </li>
             <li>
               <b>You keep your phone company.</b>
