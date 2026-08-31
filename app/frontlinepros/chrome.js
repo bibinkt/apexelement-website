@@ -1,20 +1,21 @@
-import Link from 'next/link';
-import { brand, base } from './brand';
+import { brand } from './brand';
+import { productBase } from './nav';
 
 export function Mast() {
+  const b = productBase();
   return (
     <header className="mast">
       <div className="shell mast-in">
-        <div>
-          <Link href={base} className="logo">
-            Frontline<span>Pros</span>
-          </Link>
-          <div className="byline">A product of {brand.LEGAL_ENTITY}</div>
-        </div>
+        <a href={b || '/'} className="logo">
+          Frontline<span>Pros</span>
+          <em>by {brand.LEGAL_ENTITY}</em>
+        </a>
         <nav>
-          <Link href={`${base}#how`}>How it works</Link>
-          <Link href={`${base}#offer`}>Founding offer</Link>
-          <Link href={`${base}/contact`}>Contact</Link>
+          <a href={`${b}/#how`}>How it works</a>
+          <a href={`${b}/#offer`}>Founding offer</a>
+          <a href={`${b}/contact`} className="nav-cta">
+            Talk to us
+          </a>
         </nav>
       </div>
     </header>
@@ -22,22 +23,38 @@ export function Mast() {
 }
 
 export function Foot() {
+  const b = productBase();
   return (
     <footer>
-      <div className="shell">
+      <div className="shell foot-grid">
         <div>
-          <Link href={`${base}/contact`}>Contact</Link>
-          <Link href={`${base}/privacy`}>Privacy Policy</Link>
-          <Link href={`${base}/terms`}>Terms of Service</Link>
-          <Link href={`${base}/messaging-terms`}>Messaging Terms</Link>
+          <div className="foot-logo">
+            Frontline<span>Pros</span>
+          </div>
+          <p className="foot-blurb">
+            Missed-call textback for appliance repair, HVAC and plumbing shops. A product of{' '}
+            {brand.LEGAL_ENTITY}.
+          </p>
         </div>
-        <div className="foot-legal">
-          © {brand.YEAR} {brand.LEGAL_ENTITY}. All rights reserved. {brand.NAME} is a product of{' '}
-          {brand.LEGAL_ENTITY}.
-          <br />
-          Not for emergencies. If you smell gas or face fire, flooding or any risk to life,
-          call 911 or your utility&rsquo;s emergency line.
+        <div>
+          <div className="foot-head">Company</div>
+          <a href={`${b}/contact`}>Contact</a>
+          <a href="https://www.apexelement.ai" target="_blank" rel="noopener noreferrer">
+            ApexElement
+          </a>
         </div>
+        <div>
+          <div className="foot-head">Legal</div>
+          <a href={`${b}/privacy`}>Privacy Policy</a>
+          <a href={`${b}/terms`}>Terms of Service</a>
+          <a href={`${b}/messaging-terms`}>Messaging Terms</a>
+        </div>
+      </div>
+      <div className="shell foot-legal">
+        © {brand.YEAR} {brand.LEGAL_ENTITY}. All rights reserved.
+        <br />
+        <strong>Not for emergencies.</strong> If you smell gas or face fire, flooding or any risk to
+        life, hang up and call 911 or your utility&rsquo;s emergency line.
       </div>
     </footer>
   );

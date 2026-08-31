@@ -1,9 +1,11 @@
 import { brand } from '../brand';
 import { Mast, Foot } from '../chrome';
+import { productBase } from '../nav';
 
 export const metadata = { title: 'Terms of Service — ' + brand.NAME };
 
 export default function Page() {
+  const b = productBase();
   return (
     <>
       <Mast />
@@ -53,7 +55,7 @@ export default function Page() {
 
 <h2>6. Customer data and confidentiality</h2>
 <p>Information collected from your callers — their numbers, messages, photographs and job cards — is <strong>your</strong> business's customer data. As between you and us, you own it. You grant us a limited licence to process it solely to provide the service, to maintain and secure it, and to comply with law.</p>
-<p>We will not use your customer data to market to your customers, and we will not sell it. Our handling of personal information is described in the <a href="/frontlinepros/privacy">Privacy Policy</a>, which forms part of these Terms.</p>
+<p>We will not use your customer data to market to your customers, and we will not sell it. Our handling of personal information is described in the <a href={`${b}/privacy`}>Privacy Policy</a>, which forms part of these Terms.</p>
 <p>You are responsible for having a lawful basis to collect your customers' information and for your own privacy obligations to them.</p>
 
 <h2>7. Founding member offer</h2>

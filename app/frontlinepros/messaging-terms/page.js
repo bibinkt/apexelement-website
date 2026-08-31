@@ -1,9 +1,11 @@
 import { brand } from '../brand';
 import { Mast, Foot } from '../chrome';
+import { productBase } from '../nav';
 
 export const metadata = { title: 'Messaging Terms — ' + brand.NAME };
 
 export default function Page() {
+  const b = productBase();
   return (
     <>
       <Mast />
@@ -56,7 +58,7 @@ export default function Page() {
 <div className="note">
   <p><strong>No mobile information — including your telephone number, your opt-in status, or the content of your messages — is sold, rented, or shared with any third party or affiliate for that third party's marketing or promotional purposes.</strong> This information is shared only with the business you telephoned and with the service providers strictly necessary to deliver the messages.</p>
 </div>
-<p>Full detail is in our <a href="/frontlinepros/privacy">Privacy Policy</a>.</p>
+<p>Full detail is in our <a href={`${b}/privacy`}>Privacy Policy</a>.</p>
 <p><strong>Please do not send payment card details, bank details, identification numbers or health information by text.</strong> We never ask for them.</p>
 
 <h2>Not for emergencies</h2>
@@ -72,7 +74,7 @@ export default function Page() {
   <tr><th>Cost</th><td>Message and data rates may apply</td></tr>
   <tr><th>Opt out</th><td>Reply STOP</td></tr>
   <tr><th>Help</th><td>Reply HELP, or <span className="fill">support@[DOMAIN]</span></td></tr>
-  <tr><th>Privacy</th><td><a href="/frontlinepros/privacy">Privacy Policy</a></td></tr>
+  <tr><th>Privacy</th><td><a href={`${b}/privacy`}>Privacy Policy</a></td></tr>
 </table>
       </div>
       <Foot />

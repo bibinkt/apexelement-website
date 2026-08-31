@@ -1,9 +1,11 @@
 import { brand } from '../brand';
 import { Mast, Foot } from '../chrome';
+import { productBase } from '../nav';
 
 export const metadata = { title: 'Privacy Policy — ' + brand.NAME };
 
 export default function Page() {
+  const b = productBase();
   return (
     <>
       <Mast />
