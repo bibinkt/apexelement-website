@@ -164,10 +164,9 @@ export default function Home() {
       {/* Navigation */}
       <nav>
         <div className="nav-container">
-          <div className="logo">
-            <span>⚡</span>
-            <span>ApexElement</span>
-          </div>
+          <a href="#home" className="logo">
+            <img src="/images/logo.png" alt="ApexElement" className="logo-image" />
+          </a>
           <ul className="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -217,6 +216,25 @@ export default function Home() {
           <h2 className="section-title">Our Products</h2>
           <p className="section-subtitle">Innovative AI-powered tools designed for everyday use</p>
           <div className="products-grid">
+            <div className="product-card fade-in">
+              <div className="product-header">
+                <div className="product-icon">📞</div>
+                <span className="coming-soon-badge">Now taking founding members</span>
+              </div>
+              <div className="product-body">
+                <h3 className="product-title">FrontlinePros - The Call You Missed, Answered</h3>
+                <p className="product-description">FrontlinePros is a missed-call textback service built for appliance repair, HVAC and plumbing shops. When nobody can get to the phone, it replies by text from the shop&apos;s own number within seconds, finds out what&apos;s broken, gets a photo of the equipment data plate, and hands the owner a complete job card &mdash; before the customer calls the next shop on the list.</p>
+                <ul className="product-features">
+                  <li>Replies from your own business number</li>
+                  <li>Reads model &amp; serial from a photo</li>
+                  <li>Screens out tripped breakers and open doors</li>
+                  <li>Job card ready when you finish the job</li>
+                  <li>Keep your number and your carrier</li>
+                  <li>Switch it off with one dial code</li>
+                </ul>
+                <a href="https://frontlinepros.apexelement.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Visit FrontlinePros</a>
+              </div>
+            </div>
             <div className="product-card fade-in">
               <div className="product-header">
                 <div className="product-icon">🍳</div>
@@ -413,7 +431,7 @@ export default function Home() {
       {/* Footer */}
       <footer>
         <div className="footer-content">
-          <p>&copy; 2025 ApexElement. All rights reserved. | Empowering businesses with AI</p>
+          <p>&copy; 2025 ApexElement LLC. All rights reserved. | Empowering businesses with AI</p>
         </div>
       </footer>
     </>

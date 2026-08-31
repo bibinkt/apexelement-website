@@ -235,8 +235,8 @@ export default function AdminPanel() {
     <div className="admin-dashboard">
       <header className="admin-header">
         <div className="header-left">
-          <span className="logo-icon">⚡</span>
-          <h1>ApexElement Admin</h1>
+          <img src="/images/logo.png" alt="ApexElement" className="header-logo" />
+          <span className="admin-label">Admin</span>
         </div>
         <div className="header-right">
           <span className="user-info">👤 Admin</span>
@@ -331,13 +331,19 @@ export default function AdminPanel() {
           align-items: center;
           gap: 12px;
         }
-        .logo-icon {
-          font-size: 28px;
+        .header-logo {
+          height: 40px;
+          width: auto;
+          object-fit: contain;
         }
-        .header-left h1 {
-          margin: 0;
-          font-size: 20px;
-          color: #1a1a2e;
+        .admin-label {
+          background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+          color: white;
+          padding: 4px 12px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
         }
         .header-right {
           display: flex;
