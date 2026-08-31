@@ -301,6 +301,21 @@
 .rw .formmsg.err { display: block; background: #f8e5e0; border-left: 3px solid var(--accent); color: #7a2a10; }
 .rw .hint { font-size: 13.5px; color: var(--muted); margin-top: 12px; }
 
+/* ── SMS consent (A2P: unchecked by default, full disclosure inline) ── */
+.rw .optin { margin-top: 26px; padding: 18px 20px; border: 1px solid var(--rule-2); background: rgba(0, 0, 0, .015); }
+.rw label.optin-row {
+  display: flex; gap: 13px; align-items: flex-start; cursor: pointer;
+  margin: 0; text-transform: none; letter-spacing: 0; font-weight: 400;
+  font-size: 14px; line-height: 1.55; color: var(--ink);
+}
+.rw .optin-row input[type="checkbox"] {
+  width: 19px; height: 19px; flex: 0 0 19px; margin: 2px 0 0; padding: 0;
+  accent-color: var(--accent); cursor: pointer;
+}
+.rw .optin-text b { font-weight: 700; }
+.rw .optin-text a { color: var(--ink); text-decoration: underline; }
+.rw .optin-note { font-size: 12.5px; color: var(--muted); margin: 11px 0 0 32px; }
+
 /* ── responsive ───────────────────────────────────────── */
 @media (max-width: 900px) {
   .rw .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 60px; }
@@ -357,6 +372,7 @@
       rgba(19,18,8,.96) 52%, rgba(19,18,8,.74) 72%, rgba(19,18,8,.42) 100%);
   }
   .rw:not([data-theme="light"]) .btn { color: #17160d; }
+  .rw:not([data-theme="light"]) .optin { background: rgba(255, 255, 255, .035); }
   .rw:not([data-theme="light"]) .formmsg.ok { background: #1d2c20; color: #b7dcbd; }
   .rw:not([data-theme="light"]) .formmsg.err { background: #33201a; color: #e8b49c; }
 }
