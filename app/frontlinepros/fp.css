@@ -301,6 +301,16 @@
 .rw .formmsg.err { display: block; background: #f8e5e0; border-left: 3px solid var(--accent); color: #7a2a10; }
 .rw .hint { font-size: 13.5px; color: var(--muted); margin-top: 12px; }
 
+/* ── what it asks ─────────────────────────────────────── */
+.rw .asksec { background: var(--band); }
+.rw .asklede { margin-bottom: 34px; }
+.rw .ask-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.rw .ask-grid > div {
+  border: 1px solid var(--rule); padding: 26px 24px; margin: -1px 0 0 -1px; background: #fff;
+}
+.rw .ask-grid b { display: block; color: var(--ink); margin-bottom: 7px; font-size: 17.5px; }
+.rw .ask-grid span { font-size: 15px; color: var(--body); line-height: 1.6; }
+
 /* ── SMS consent (A2P: unchecked by default, full disclosure inline) ── */
 .rw .optin { margin-top: 26px; padding: 18px 20px; border: 1px solid var(--rule-2); background: rgba(0, 0, 0, .015); }
 .rw label.optin-row {
@@ -359,6 +369,7 @@
   .rw:not([data-theme="light"]) .phone,
   .rw:not([data-theme="light"]) .card,
   .rw:not([data-theme="light"]) .keeps li,
+  .rw:not([data-theme="light"]) .ask-grid > div,
   .rw:not([data-theme="light"]) .trade-grid figure,
   .rw:not([data-theme="light"]) .tally,
   .rw:not([data-theme="light"]) .statline,

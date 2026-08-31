@@ -23,9 +23,10 @@ export default function FrontlinePros() {
             <h1>The call you missed just texted you back.</h1>
             <p className="lede">
               When your phone rings and everyone&rsquo;s on a job, {brand.NAME} answers by text
-              within seconds &mdash; from your own number. It finds out what&rsquo;s broken, gets a
-              photo of the model plate, and sends you a job card before the customer has called
-              anyone else.
+              within seconds &mdash; from your own number. It holds the conversation for you: what
+              broke, how long it&rsquo;s been going on, where they are, when they&rsquo;re free, and
+              a photo when one would help. Then it hands you a job card, before the customer has
+              called anyone else.
             </p>
             <p className="hero-cta">
               <a href={`tel:${brand.PHONE_E164}`} className="btn">
@@ -120,16 +121,71 @@ export default function FrontlinePros() {
               From your business number, not some 1-800 line.
             </li>
             <li>
-              <b>It gets the details.</b>
-              What&rsquo;s wrong, and a photo of the manufacturer&rsquo;s data plate so you have the
-              exact model and serial before you leave the shop.
+              <b>It asks the questions you would have asked.</b>
+              What&rsquo;s doing what, since when, whether it&rsquo;s still running, where they are
+              and when they&rsquo;re free &mdash; and a photo when a photo saves you a trip.
             </li>
             <li>
               <b>You get a job card.</b>
-              Customer, address, equipment, model number, what they said, and the photo. Ready when
-              you finish the job you&rsquo;re on.
+              Customer, address, equipment, what they said, what it screened out, and anything they
+              sent. Ready when you finish the job you&rsquo;re on.
             </li>
           </ol>
+        </div>
+      </section>
+
+      {/* ── WHAT IT ASKS ───────────────────────────────── */}
+      <section id="asks" className="asksec">
+        <div className="shell">
+          <h2>It&rsquo;s a conversation, not an upload form</h2>
+          <p className="asklede">
+            The photo is one question out of many, and on plenty of jobs it never asks for one. What
+            it&rsquo;s really doing is the front-desk work you don&rsquo;t have time for.
+          </p>
+          <div className="ask-grid">
+            <div>
+              <b>Qualifies the job</b>
+              <span>
+                Is this a repair you take, in an area you cover? It sorts the real jobs from the
+                wrong numbers and the landlord who wants a free quote.
+              </span>
+            </div>
+            <div>
+              <b>Screens the obvious first</b>
+              <span>
+                Breaker on, valve open, filter clogged, door sealing. Sometimes it fixes the problem
+                over text and saves you the drive entirely.
+              </span>
+            </div>
+            <div>
+              <b>Catches the dangerous ones</b>
+              <span>
+                Gas, burning smells, water coming through a ceiling. It stops asking questions and
+                tells them to call you or 911 right away.
+              </span>
+            </div>
+            <div>
+              <b>Gets you what you need to quote</b>
+              <span>
+                Make, model, age, symptom &mdash; from a photo if there&rsquo;s a plate to read,
+                from plain questions if there isn&rsquo;t.
+              </span>
+            </div>
+            <div>
+              <b>Books the window</b>
+              <span>
+                Address, when they&rsquo;re actually home, and whether someone can let you in. No
+                phone tag at seven in the evening.
+              </span>
+            </div>
+            <div>
+              <b>Keeps them warm</b>
+              <span>
+                They get an answer in twenty seconds instead of silence, so they stop working down
+                the list of your competitors.
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
