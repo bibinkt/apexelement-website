@@ -928,3 +928,29 @@
   .rw .logo b { font-size: 18px; }
   .rw .logo em { font-size: 9.5px; }
 }
+
+/* ── tablet ─────────────────────────────────────────────
+   At 768px the page measured 9,872px — taller than at 430px — because the
+   compaction above stops at 700 while the grids have already collapsed to one
+   column. Carry the cheap parts of it up to 900. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .rw section { padding: 46px 0; }
+  .rw .hero-grid { padding: 40px 24px 44px; gap: 30px; }
+  .rw .device { max-width: 320px; margin: 0 auto; }
+  .rw .device-screen { min-height: 0; }
+  .rw .thread { padding: 12px; gap: 7px; }
+  .rw .bub { font-size: 14px; padding: 9px 12px; }
+  .rw .card-phone .device-screen { min-height: 0; }
+  .rw .shot img { aspect-ratio: 16/9; }
+  .rw .trade-grid figure img { aspect-ratio: 16/9; }
+  .rw ol.steps li { padding: 22px 24px 22px 66px; }
+  .rw .ask-grid > div, .rw .keeps li { padding: 20px; }
+  .rw footer { padding: 40px 0 30px; }
+}
+
+/* Touch targets: the masthead call button and footer links were under the
+   44px Apple / 48px Google minimum on a phone. */
+@media (max-width: 900px) {
+  .rw .nav-cta { min-height: 40px; display: inline-flex; align-items: center; }
+  .rw .foot-links a, .rw footer nav a { display: inline-block; padding: 6px 0; }
+}

@@ -3,7 +3,7 @@ import { productBase } from '../nav';
 import JoinForm from './form';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Finish setup — FrontlinePros' };
+export const metadata = { title: 'Finish setup — FrontlinePros' , robots: { index: false, follow: false } };
 
 export default function JoinPage({ searchParams }) {
   const base = productBase();

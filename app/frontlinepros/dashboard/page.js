@@ -8,7 +8,7 @@ import { prettyPhone } from '../../../lib/fp/twilio';
 import LoginForm from './login';
 
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Dashboard — FrontlinePros' };
+export const metadata = { title: 'Dashboard — FrontlinePros' , robots: { index: false, follow: false } };
 
 function Spark({ series }) {
   const max = Math.max(1, ...series.map((d) => d.calls));

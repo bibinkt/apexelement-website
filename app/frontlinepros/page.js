@@ -8,11 +8,72 @@ import AskMore from './askmore';
 const IMG = (id, w = 1200) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
+// Marked up so the questions can win their own result rather than sitting
+// invisible inside the page body.
+const FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I have to change my phone number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Calls ring your existing number on your existing carrier. We only pick up the ones you don't."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I answer the phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing happens. It only triggers on an unanswered call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the customer know it's automated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They know they're texting your shop. It's brief and it's polite, and it never pretends to diagnose anything \u2014 it asks questions and hands you the answers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the photo is unreadable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It tells you it couldn't read it rather than guessing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost to set up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing. Ten minutes on the phone and one code dialled into your handset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a customer replies STOP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They stop hearing from the system immediately and we keep a record so it stays that way. You can still call them back yourself."
+      }
+    }
+  ]
+};
+
 export default function FrontlinePros() {
   const b = productBase();
   return (
     <>
       <Mast />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }}
+      />
 
       {/* ── HERO ───────────────────────────────────────── */}
       <div className="hero">
