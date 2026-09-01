@@ -8,7 +8,7 @@
 import { selectOne, meter, TELEPHONY_USD } from '../../../../lib/fp/db';
 import { formParams, verifySignature, twiml, e164 } from '../../../../lib/fp/twilio';
 import { sendOpeningSms } from '../../../../lib/fp/chain';
-import { requestConsentAfterCall } from '../../../../lib/fp/onboarding';
+
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -37,22 +37,27 @@ export async function POST(request) {
   const marketing = (process.env.FP_MARKETING_NUMBERS || '')
     .split(',').map((x) => x.trim()).filter(Boolean);
   if (marketing.includes(to)) {
-    // Ask permission by text before sending anything else. Off unless
-    // FP_CALL_CONSENT=1, because the campaign must declare this path first.
-    const consent = process.env.FP_CALL_CONSENT === '1';
-    if (consent) {
-      requestConsentAfterCall({ marketingNumber: to, from }).catch((e) =>
-        console.error('[fp] consent request failed', e.message)
+    // Ask on the call itself whether they want a text. Nothing is sent unless
+    // they press 1, so we never message someone who did not ask for it.
+    if (process.env.FP_CALL_CONSENT === '1') {
+      const action = `${process.env.FP_SITE_URL || 'https://frontlinepros.apexelement.ai'}/api/voice/consent`;
+      return twiml(
+        `<Response>` +
+          `<Gather input="dtmf" numDigits="1" timeout="6" action="${action}" method="POST">` +
+            `<Say voice="Polly.Joanna">Thanks for calling FrontlinePros. ` +
+            `We can text you right now to get you set up. ` +
+            `If you are happy for us to text this number, press one. ` +
+            `Otherwise just hang up and someone will call you back.</Say>` +
+          `</Gather>` +
+          `<Say voice="Polly.Joanna">No problem. Someone will call you back shortly. Goodbye.</Say>` +
+          `<Hangup/>` +
+        `</Response>`
       );
     }
     return say(
-      consent
-        ? 'Thanks for calling FrontlinePros. We are sending you a text right now to ask whether ' +
-          'you are happy for us to message you. Reply YES and we will take it from there. ' +
-          'Thanks for calling.'
-        : 'Thanks for calling FrontlinePros. We answer our own phone, so leave it with us and ' +
-          'someone will call you straight back. If you would rather see it working right now, ' +
-          'visit frontline pros dot apex element dot A I. Thanks for calling.'
+      'Thanks for calling FrontlinePros. We answer our own phone, so leave it with us and ' +
+      'someone will call you straight back. If you would rather see it working right now, ' +
+      'visit frontline pros dot apex element dot A I. Thanks for calling.'
     );
   }
 
