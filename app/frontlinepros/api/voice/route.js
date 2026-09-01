@@ -50,6 +50,22 @@ export async function POST(request) {
 
   await meter({ shop_id: shop.id, kind: 'voice', usd: TELEPHONY_USD.voice });
 
+  // On the demo line only, offer the choice. A forwarded call from a real
+  // shop must never hear a menu — their customer just wants their repair.
+  if (shop.is_demo && process.env.FP_DEMO_MENU !== '0') {
+    const action = `${process.env.FP_SITE_URL || 'https://frontlinepros.apexelement.ai'}/api/voice/choice`;
+    return twiml(
+      `<Response>` +
+        `<Gather input="dtmf" numDigits="1" timeout="7" action="${action}" method="POST">` +
+          `<Say voice="Polly.Joanna">Thanks for calling FrontlinePros. ` +
+          `To see exactly what your customer gets when you miss their call, press one. ` +
+          `To get your own shop set up, press two.</Say>` +
+        `</Gather>` +
+        `<Redirect method="POST">${action}?Digits=1</Redirect>` +
+      `</Response>`
+    );
+  }
+
   // Answer, name the business, promise the text, hang up. Three seconds so the
   // caller doesn't think they've been dumped.
   const greeting =
