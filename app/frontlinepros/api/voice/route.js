@@ -29,6 +29,20 @@ export async function POST(request) {
   const to = e164(params.To);
   const from = e164(params.From);
 
+  // The marketing / onboarding line is not a shop, so it gets its own greeting.
+  // It deliberately does NOT fire an SMS: the approved Marketing campaign
+  // declares a single opt-in path (the consent checkbox), and texting someone
+  // merely because they phoned us would fall outside it.
+  const marketing = (process.env.FP_MARKETING_NUMBERS || '')
+    .split(',').map((x) => x.trim()).filter(Boolean);
+  if (marketing.includes(to)) {
+    return say(
+      'Thanks for calling FrontlinePros. We answer our own phone, so leave it with us and ' +
+      'someone will call you straight back. If you would rather see it working right now, ' +
+      'visit frontline pros dot apex element dot A I. Thanks for calling.'
+    );
+  }
+
   const shop = await selectOne('fp_shops', `assigned_number=eq.${encodeURIComponent(to)}`);
   if (!shop) {
     console.error('[fp] voice: no shop for', to);
