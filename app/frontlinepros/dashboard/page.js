@@ -6,8 +6,9 @@ import { selectOne } from '../../../lib/fp/db';
 import { loadShopData, summarise, dailySeries, DAY_NAMES } from '../../../lib/fp/analytics';
 import { prettyPhone } from '../../../lib/fp/twilio';
 import LoginForm from './login';
-import { ProfileNudge, SubscriptionBar } from './actions';
+import { ProfileNudge, SubscriptionBar, ReferralOptIn } from './actions';
 import { completion } from '../../../lib/fp/profile';
+import { getTrade } from '../../../lib/fp/trades';
 import { isSubscribed, configured } from '../../../lib/fp/billing';
 
 export const dynamic = 'force-dynamic';
@@ -191,6 +192,8 @@ export default async function Dashboard({ searchParams }) {
               </p>
             </div>
           </div>
+
+          <ReferralOptIn base={base} shop={shop} tradeLabel={getTrade(shop.trade_id).trade_label} />
 
           {(s.hazards > 0 || s.stopped > 0) && (
             <div className="dash-note">

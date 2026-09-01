@@ -144,6 +144,57 @@ export function ProfileNudge({ base = '', shop, fields, pct, done, total }) {
   );
 }
 
+/**
+ * Work outside the shop's trade. Two separate things, deliberately: we always
+ * stop the intake, and separately the owner chooses whether to be introduced to
+ * customers other shops cannot serve. Opting in is what puts them in the pool.
+ */
+export function ReferralOptIn({ base = '', shop, tradeLabel }) {
+  const [on, setOn] = useState(shop.referrals_ok === true);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState(null);
+
+  async function set(next) {
+    setBusy(true); setMsg(null);
+    const before = on;
+    setOn(next);
+    try {
+      const r = await fetch(`${base}/api/profile`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ referrals_ok: next }),
+      });
+      if (!(await r.json()).ok) throw new Error('That did not save.');
+      setMsg(next ? 'You’re in. We’ll send you work other shops can’t take.' : 'Turned off.');
+    } catch (e) {
+      setOn(before);
+      setMsg(e.message);
+    } finally { setBusy(false); }
+  }
+
+  return (
+    <div className="panel">
+      <h3>Work other shops can&rsquo;t take</h3>
+      <p className="panel-lead">
+        When someone rings a shop about {tradeLabel} work they don&rsquo;t do, we ask that customer
+        whether they&rsquo;d like an introduction. If you&rsquo;re in, their number and what they told
+        us arrive as a job card on your account &mdash; only after the customer has said yes. It costs
+        nothing extra.
+      </p>
+      <div className="railtoggle">
+        <div>
+          <b>Send me those customers</b>
+          <span>You can turn this off at any time. We never share your details with the customer.</span>
+        </div>
+        <button className={`switch${on ? ' on' : ''}`} disabled={busy}
+                aria-pressed={on} onClick={() => set(!on)}>
+          {on ? 'On' : 'Off'}
+        </button>
+      </div>
+      {msg && <p className="panel-foot">{msg}</p>}
+    </div>
+  );
+}
+
 export function SubscriptionBar({ base = '', status, endsAt, billingOn }) {
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState(null);

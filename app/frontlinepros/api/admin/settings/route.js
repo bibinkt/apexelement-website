@@ -24,16 +24,33 @@ export async function POST(request) {
       const f = path.split('.')[1];
       return current.forbid?.[f] === true && value?.forbid?.[f] === false;
     });
-    if (weakened.length && confirm !== true) {
+    // Switching referrals on is the other change that needs a decision rather
+    // than a click: from that point, a customer's phone number and their
+    // description can leave the shop they rang and reach a different business.
+    const openingReferrals =
+      current.referrals_enabled !== true && value?.referrals_enabled === true;
+
+    const reasons = weakened.map((w) => PROTECTED[w]);
+    if (openingReferrals) {
+      reasons.push(
+        'Pass a customer’s phone number and their own description to a different shop, when the customer replies YES to being introduced.'
+      );
+    }
+
+    if ((weakened.length || openingReferrals) && confirm !== true) {
       return Response.json(
         {
           ok: false,
           needsConfirm: true,
-          weakened,
-          reasons: weakened.map((w) => PROTECTED[w]),
+          weakened: openingReferrals ? [...weakened, 'referrals_enabled'] : weakened,
+          reasons,
         },
         { status: 409 }
       );
+    }
+    if (openingReferrals) {
+      await insert('fp_costs', { kind: 'audit_referrals_on', model: admin.email, usd: 0 }).catch(() => {});
+      console.warn('[fp] referrals enabled by', admin.email);
     }
     if (weakened.length) {
       await insert('fp_costs', {

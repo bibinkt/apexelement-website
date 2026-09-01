@@ -20,6 +20,9 @@ const { routeConfidence, assembleCard, isIdentified, CONFIDENCE_THRESHOLD } = aw
 const { missingFields } = await import('../lib/fp/claude.js');
 const { getTrade, triageFor, escalationSms } = await import('../lib/fp/trades.js');
 const { e164, prettyPhone } = await import('../lib/fp/twilio.js');
+const { looksOutOfTrade, guessTrade, offerText, noMatchText } = await import('../lib/fp/referral.js');
+const { setSetting, clearSettingsCache } = await import('../lib/fp/settings.js');
+const { update } = await import('../lib/fp/db.js');
 
 const C = { g: (s) => `\x1b[32m${s}\x1b[0m`, r: (s) => `\x1b[31m${s}\x1b[0m`,
             d: (s) => `\x1b[2m${s}\x1b[0m`, b: (s) => `\x1b[1m${s}\x1b[0m`,
@@ -240,6 +243,198 @@ suite('intake', async () => {
   ok('never diagnosed', !msgs.some((m) => /it('?s| is) (probably|likely|definitely) the/i.test(m)));
   const asks = msgs.filter((m) => /service address/i.test(m));
   ok('the address was asked at most once', asks.length <= 1, `asked ${asks.length}×`);
+});
+
+// ── out-of-trade and referral ───────────────────────────────
+suite('referral', async () => {
+  // ---- pure logic, no model, no network ----
+  const applianceShop = { trade_id: 'appliance', business_name: 'Ace Appliance' };
+  const hvacShop = { trade_id: 'hvac', business_name: 'Cool Air' };
+  const plumbShop = { trade_id: 'plumbing', business_name: 'Tampa Pipes' };
+
+  ok('a thermostat is not appliance work',
+     looksOutOfTrade(applianceShop, 'my thermostat is blank') === 'hvac');
+  ok('a fridge is appliance work',
+     looksOutOfTrade(applianceShop, 'my fridge stopped getting cold') === null);
+  ok('a blocked toilet is not appliance work',
+     looksOutOfTrade(applianceShop, 'the toilet is completely blocked') === 'plumbing');
+  // REGRESSION: HVAC firms fit water heaters, and "water heater" reads as
+  // plumbing on a word list. The shop's own equipment list has to win.
+  ok('a water heater is in scope for an HVAC shop',
+     looksOutOfTrade(hvacShop, 'no hot water from the water heater') === null);
+  ok('a water heater is in scope for a plumber',
+     looksOutOfTrade(plumbShop, 'no hot water from the water heater') === null);
+  ok('a furnace is out of scope for a plumber',
+     looksOutOfTrade(plumbShop, 'the furnace wont light') === 'hvac');
+  // Ambiguity must never trigger a referral.
+  ok('an equal tie is treated as unclear',
+     looksOutOfTrade(applianceShop, 'the dryer vent and the furnace both smell odd') === null);
+  ok('a vague message is left alone',
+     looksOutOfTrade(applianceShop, 'its broken and i need someone out') === null);
+  ok('an empty message is left alone', looksOutOfTrade(applianceShop, '') === null);
+  ok('guessTrade returns null on nothing recognisable', guessTrade('hello there') === null);
+
+  // REGRESSION: substring matching found "range" inside "arrangement", "ac"
+  // inside "back" and "shower" inside nothing useful. Every false positive here
+  // is a paying customer told their job is not this shop's work.
+  for (const [shop, text, expect] of [
+    [applianceShop, 'the AC is blowing warm air', 'hvac'],
+    [applianceShop, 'my a/c unit is dead', 'hvac'],
+    [applianceShop, 'air conditioner not cooling', 'hvac'],
+    [applianceShop, 'the toilet keeps running', 'plumbing'],
+    [applianceShop, 'we need to make an arrangement for tuesday', null],
+    [applianceShop, 'i want to backup my washer', null],
+    [applianceShop, 'call me back please', null],
+    [applianceShop, 'my range hood fan died', null],
+    [applianceShop, 'my oven wont heat', null],
+    [applianceShop, 'my dryer wont heat', null],
+    [hvacShop, 'the thermostat is blank', null],
+    [plumbShop, 'toilet overflowing', null],
+  ]) {
+    ok(`"${text}" → ${expect || 'in scope'}`, looksOutOfTrade(shop, text) === expect,
+       String(looksOutOfTrade(shop, text)));
+  }
+
+  // ---- the offer text never names the other shop, and never recommends ----
+  const offer = offerText({ business_name: 'Ace Appliance', trade_id: 'appliance' }, 'hvac');
+  ok('the offer asks rather than recommends', /would you like us to pass/i.test(offer));
+  ok('the offer carries an opt-out', /reply stop/i.test(offer));
+  ok('the offer names no third party', !/\b(Cool Air|Tampa Pipes)\b/.test(offer));
+  const nomatch = noMatchText({ business_name: 'Ace Appliance', trade_id: 'appliance' }, 'hvac');
+  ok('with nobody to refer to we say so plainly', /outside what we can help with/i.test(nomatch));
+  ok('and still carry an opt-out', /reply stop/i.test(nomatch));
+
+  // ---- live chain: referrals OFF (the shipped default) ----
+  let shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await sendOpeningSms(shop, CALLER, 'CA');
+  let r = await say(shop, 'my thermostat is completely blank, no display at all');
+  ok('an out-of-trade call stops the intake', r.action === 'out_of_scope', r.action);
+  ok('we never asked for a data plate',
+     !toCaller().some((m) => /data plate|sticker|photo/i.test(m)));
+  ok('the customer is told plainly', /outside what we can help with/i.test(last(toCaller())));
+  ok('the owner is told a call came in', toOwner().some((m) => /not your trade/i.test(m)));
+  ok('the owner note is not quoted as the customer speaking',
+     !toOwner().some((m) => /text from .*Not your trade/is.test(m)));
+  let conv = _testTable('fp_conversations')[0];
+  ok('the conversation is closed', conv.status === 'out_of_scope');
+  ok('no job card was created', _testTable('fp_jobcards').length === 0);
+
+  // ---- referrals ON, but nobody has opted in ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', {
+    id: 'shop-2', business_name: 'Cool Air', trade_id: 'hvac',
+    owner_phone: '+18135559000', assigned_number: '+16805550000',
+    status: 'active', subscription_status: 'active', referrals_ok: false,
+  });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  r = await say(shop, 'my thermostat is completely blank, no display at all');
+  ok('a shop that has not opted in is never used', r.action === 'out_of_scope', r.action);
+
+  // ---- referrals ON with an eligible shop: the customer declines ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  const other = await insert('fp_shops', {
+    id: 'shop-2', business_name: 'Cool Air', trade_id: 'hvac',
+    owner_phone: '+18135559000', assigned_number: '+16805550000',
+    status: 'active', subscription_status: 'active', referrals_ok: true,
+  });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  r = await say(shop, 'my thermostat is completely blank, no display at all');
+  ok('an introduction is offered', r.action === 'referral_offered', r.action);
+  ok('the offer went to the customer', /would you like us to pass/i.test(last(toCaller())));
+  r = await say(shop, 'no thanks');
+  ok('a no is honoured', r.action === 'referral_declined', r.action);
+  ok('nothing was passed on', _testTable('fp_jobcards').length === 0);
+  ok('we say so to the customer', /haven.t passed your details/i.test(last(toCaller())));
+
+  // ---- silence and hedging are not consent ----
+  for (const reply of ['maybe', 'who are they', 'i dont know', 'stop asking']) {
+    shop = await shopFixture('appliance');
+    clearSettingsCache();
+    await setSetting('guardrails', { referrals_enabled: true });
+    await insert('fp_shops', { ...other, id: 'shop-2' });
+    await sendOpeningSms(shop, CALLER, 'CA');
+    await say(shop, 'my thermostat is completely blank, no display at all');
+    const out = await say(shop, reply);
+    ok(`"${reply}" is not treated as consent`, out.action === 'referral_declined', out.action);
+  }
+
+  // ---- the customer accepts ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', { ...other, id: 'shop-2' });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  await say(shop, 'my thermostat is completely blank, no display at all');
+  r = await say(shop, 'yes please');
+  ok('a yes creates the introduction', r.action === 'referred', r.action);
+  const card = _testTable('fp_jobcards')[0];
+  ok('the card belongs to the receiving shop', card && card.shop_id === 'shop-2');
+  ok('the card is marked as an introduction', card && /INTRODUCTION/.test(card.card_text));
+  ok('the card names who passed it on', card && /Ace Appliance/.test(card.card_text));
+  ok('the card carries the not-diagnosed warning', card && /NOT DIAGNOSED/.test(card.card_text));
+  ok('the card is not marked identified', card && card.identified === false);
+  ok('the receiving owner is texted on their own line',
+     sent().some((m) => m.to === '+18135559000' && m.from === '+16805550000'));
+  conv = _testTable('fp_conversations')[0];
+  ok('the conversation records where it went', conv.state.referred_to === 'shop-2');
+  ok('the conversation is closed as referred', conv.status === 'referred');
+
+  // ---- REGRESSION: "yes" must not be read as a resubscribe keyword ----
+  ok('a yes to the offer did not clear the opt-out table',
+     _testTable('fp_optouts').length === 0);
+  ok('and did not send the resubscribe text',
+     !toCaller().some((m) => /opted back in/i.test(m)));
+
+  // ---- STOP always wins, even mid-offer ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', { ...other, id: 'shop-2' });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  await say(shop, 'my thermostat is completely blank, no display at all');
+  r = await say(shop, 'STOP');
+  ok('STOP outranks an outstanding offer', r.action === 'stop', r.action);
+  ok('no introduction was made', _testTable('fp_jobcards').length === 0);
+  ok('the opt-out is recorded', await isOptedOut(shop.id, CALLER));
+
+  // ---- the receiving shop drops out between offer and answer ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', { ...other, id: 'shop-2' });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  await say(shop, 'my thermostat is completely blank, no display at all');
+  await update('fp_shops', 'id=eq.shop-2', { subscription_status: 'canceled' });
+  r = await say(shop, 'yes');
+  ok('a lapsed shop never receives details', r.action === 'referral_unavailable', r.action);
+  ok('and no card was written', _testTable('fp_jobcards').length === 0);
+
+  // ---- a hazard outranks scope ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', { ...other, id: 'shop-2' });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  r = await say(shop, 'i can smell gas near the furnace');
+  ok('a hazard is handled before scope', r.action === 'hazard', r.action);
+  ok('no referral was offered on a hazard', _testTable('fp_conversations')[0].status === 'hazard');
+
+  // ---- an in-trade call is untouched by any of this ----
+  shop = await shopFixture('appliance');
+  clearSettingsCache();
+  await setSetting('guardrails', { referrals_enabled: true });
+  await insert('fp_shops', { ...other, id: 'shop-2' });
+  await sendOpeningSms(shop, CALLER, 'CA');
+  r = await say(shop, 'my dishwasher wont drain, water sitting in the bottom');
+  ok('normal work still runs the intake', r.action === 'dialogue', r.action);
+  ok('and nothing was referred', _testTable('fp_jobcards').length === 0);
+
+  clearSettingsCache();
 });
 
 // ── onboarding ──────────────────────────────────────────────

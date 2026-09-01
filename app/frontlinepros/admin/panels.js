@@ -103,13 +103,49 @@ export default function AdminPanels({ base = '', pricing, guardrails, protectedK
         </div>
       </div>
 
+      <div className="panel" style={{ marginTop: '18px' }}>
+        <h3>Out-of-trade calls</h3>
+        <p className="panel-lead">
+          When someone rings an appliance shop about a thermostat, we stop the intake rather than
+          asking for a data plate that does not exist. With this on, we also offer to pass the
+          customer&rsquo;s details to a shop that does cover it &mdash; but only to a shop that has
+          opted in, and only after the customer replies YES. We never name the other shop to the
+          customer, and we never recommend one.
+        </p>
+        <div className="railtoggle">
+          <div>
+            <b>Offer an introduction</b>
+            <span>
+              Off: we say plainly that it is not work we take on, and tell the owner. On: we also
+              ask whether they want us to pass their number along.
+            </span>
+          </div>
+          <button
+            className={`switch${rails.referrals_enabled ? ' on' : ''}`}
+            disabled={busy}
+            aria-pressed={!!rails.referrals_enabled}
+            onClick={() => {
+              const next = { ...rails, referrals_enabled: !rails.referrals_enabled };
+              setRails(next);
+              save('guardrails', next);
+            }}
+          >
+            {rails.referrals_enabled ? 'On' : 'Off'}
+          </button>
+        </div>
+      </div>
+
       {msg && <div className="formmsg ok" style={{ display: 'block' }}>{msg}</div>}
 
       {confirm && (
         <div className="confirmwrap">
           <div className="confirmbox">
-            <h3>You are switching off a guard rail</h3>
-            <p>Once this is off, the assistant is allowed to do the following in a message to a customer:</p>
+            <h3>
+              {confirm.weakened?.includes('referrals_enabled') && confirm.weakened.length === 1
+                ? 'You are allowing customer details to leave the shop'
+                : 'You are switching off a guard rail'}
+            </h3>
+            <p>Once you confirm, the assistant is allowed to do the following:</p>
             <ul>
               {confirm.reasons.map((r) => <li key={r}>{r}</li>)}
             </ul>
@@ -119,10 +155,10 @@ export default function AdminPanels({ base = '', pricing, guardrails, protectedK
             </p>
             <div className="confirmact">
               <button className="btn btn-ghost" onClick={() => { setConfirm(null); setRails(guardrails); }}>
-                Keep it on
+                Leave it as it is
               </button>
               <button className="btn danger" onClick={() => save(confirm.key, confirm.value, true)}>
-                I understand — switch it off
+                I understand — make the change
               </button>
             </div>
           </div>
