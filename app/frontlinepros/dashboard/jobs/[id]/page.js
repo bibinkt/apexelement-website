@@ -4,6 +4,7 @@ import { productBase } from '../../../nav';
 import { shopForSession, COOKIE } from '../../../../../lib/fp/auth';
 import { selectOne, select } from '../../../../../lib/fp/db';
 import { prettyPhone } from '../../../../../lib/fp/twilio';
+import { CloseJob } from '../../actions';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Job card — FrontlinePros' };
@@ -151,6 +152,15 @@ export default async function JobCard({ params }) {
             <b>Not diagnosed.</b> No cause, part or repair has been determined. Anything marked
             &ldquo;not legible&rdquo; was not readable in the photo and is unconfirmed.
           </div>
+
+          <h2 className="dash-h2">Close this out</h2>
+          <CloseJob
+            base={base}
+            id={card.id}
+            closed={!!card.closed_at}
+            outcome={card.outcome}
+            note={card.owner_note}
+          />
 
           <h2 className="dash-h2">Full conversation</h2>
           <div className="thread">

@@ -6,6 +6,9 @@ import { selectOne } from '../../../lib/fp/db';
 import { loadShopData, summarise, dailySeries, DAY_NAMES } from '../../../lib/fp/analytics';
 import { prettyPhone } from '../../../lib/fp/twilio';
 import LoginForm from './login';
+import { ProfileNudge, SubscriptionBar } from './actions';
+import { completion } from '../../../lib/fp/profile';
+import { isSubscribed, configured } from '../../../lib/fp/billing';
 
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Dashboard — FrontlinePros' , robots: { index: false, follow: false } };
@@ -53,6 +56,7 @@ export default async function Dashboard({ searchParams }) {
     );
   }
 
+  const prof = completion(shop);
   const data = await loadShopData(shop.id, 30);
   const s = summarise(data, { timezone: shop.timezone });
   const series = dailySeries(data.conversations, data.cards, 30, shop.timezone);
@@ -77,6 +81,21 @@ export default async function Dashboard({ searchParams }) {
               </p>
             </div>
           </div>
+
+          <SubscriptionBar
+            base={base}
+            status={shop.subscription_status}
+            endsAt={shop.subscription_ends_at}
+            billingOn={configured()}
+          />
+          <ProfileNudge
+            base={base}
+            shop={shop}
+            fields={prof.missing}
+            pct={prof.pct}
+            done={prof.done}
+            total={prof.total}
+          />
 
           {/* headline tiles */}
           <div className="tiles">
@@ -219,6 +238,7 @@ export default async function Dashboard({ searchParams }) {
                       )}
                     </div>
                     <div className="jobrow-when">
+                      {card.closed_at && <span className="chip ok" style={{ marginRight: '8px' }}>closed</span>}
                       {new Date(card.created_at).toLocaleString('en-US', {
                         timeZone: shop.timezone || 'America/New_York',
                         month: 'short',
