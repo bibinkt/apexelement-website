@@ -1,39 +1,33 @@
 import { NextResponse } from 'next/server';
 
-// Serve the FrontlinePros product site at frontlinepros.apexelement.ai
-// while it lives at /frontlinepros inside this project.
+// FrontlinePros has moved to its own domain and its own repository.
 //
-// Requests to the subdomain are rewritten so the URL bar stays clean:
-//   frontlinepros.apexelement.ai/          -> /frontlinepros
-//   frontlinepros.apexelement.ai/privacy   -> /frontlinepros/privacy
+// This used to rewrite frontlinepros.apexelement.ai onto /frontlinepros inside
+// this project. Now it redirects there permanently instead: the pages are gone
+// from this codebase, and a 301 hands the accumulated search ranking to the new
+// domain rather than stranding it on a host that 404s.
 //
-// The /frontlinepros/* paths keep working on the apex domain too, so
-// Vercel previews and direct links are unaffected.
+// Paths are preserved, so /privacy on the old subdomain lands on /privacy at
+// the new one. Both hosts are covered — the subdomain and the old
+// apexelement.ai/frontlinepros/* paths.
 
-const PRODUCT_HOST = 'frontlinepros';
-const PRODUCT_PATH = '/frontlinepros';
+const OLD_HOST = 'frontlinepros';
+const OLD_PATH = '/frontlinepros';
+const NEW_ORIGIN = 'https://frontlinepros.ai';
 
 export function middleware(request) {
   const host = (request.headers.get('host') || '').toLowerCase();
   const { pathname, search } = request.nextUrl;
 
-  const isProductHost =
-    host.startsWith(`${PRODUCT_HOST}.`) || host === PRODUCT_HOST;
+  const fromSubdomain = host.startsWith(`${OLD_HOST}.`) || host === OLD_HOST;
+  const fromPath = pathname === OLD_PATH || pathname.startsWith(`${OLD_PATH}/`);
+  if (!fromSubdomain && !fromPath) return NextResponse.next();
 
-  if (!isProductHost) return NextResponse.next();
-
-  // already pointed at the product tree — leave it alone
-  if (pathname === PRODUCT_PATH || pathname.startsWith(`${PRODUCT_PATH}/`)) {
-    return NextResponse.next();
-  }
-
-  const url = request.nextUrl.clone();
-  url.pathname = pathname === '/' ? PRODUCT_PATH : `${PRODUCT_PATH}${pathname}`;
-  url.search = search;
-  return NextResponse.rewrite(url);
+  const rest = fromPath ? pathname.slice(OLD_PATH.length) || '/' : pathname;
+  return NextResponse.redirect(`${NEW_ORIGIN}${rest}${search}`, 301);
 }
 
 export const config = {
-  // skip static assets and Next internals
+  // Skip static assets and Next internals, as before.
   matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|txt|xml)).*)'],
 };
