@@ -32,18 +32,17 @@ export async function POST(request) {
   const mediaType = params.MediaContentType0 || 'image/jpeg';
 
   try {
-    const marketing = (process.env.FP_MARKETING_NUMBERS || '')
-      .split(',')
-      .map((s) => s.trim())
-      .filter(Boolean);
-
-    if (marketing.includes(to)) {
-      await handleOnboardingSms({ marketingNumber: to, from, body });
-      return EMPTY();
-    }
-
+    // Shop first, same as the voice route: an assigned number is that shop's
+    // line. Onboarding only owns numbers no shop has been given.
     const shop = await selectOne('fp_shops', `assigned_number=eq.${encodeURIComponent(to)}`);
+
     if (!shop) {
+      const marketing = (process.env.FP_MARKETING_NUMBERS || '')
+        .split(',').map((s) => s.trim()).filter(Boolean);
+      if (marketing.includes(to)) {
+        await handleOnboardingSms({ marketingNumber: to, from, body });
+        return EMPTY();
+      }
       console.error('[fp] sms: no shop for', to);
       return EMPTY();
     }
