@@ -1,15 +1,14 @@
-// Served on both hosts: middleware's matcher excludes .txt, so the subdomain
-// gets this file too rather than a rewritten 404.
+// The ApexElement site only. FrontlinePros serves its own robots.txt from its
+// own domain.
 export default function robots() {
   return {
     rules: [
       {
         userAgent: '*',
         allow: '/',
-        // Nothing behind a login, and the test bench, should be indexed.
-        disallow: ['/dashboard', '/dashboard/', '/join', '/test', '/api/', '/admin'],
+        disallow: ['/api/', '/admin'],
       },
     ],
-    sitemap: 'https://frontlinepros.apexelement.ai/sitemap.xml',
+    sitemap: 'https://www.apexelement.ai/sitemap.xml',
   };
 }

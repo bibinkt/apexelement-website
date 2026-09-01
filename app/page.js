@@ -232,7 +232,7 @@ export default function Home() {
                   <li>Keep your number and your carrier</li>
                   <li>Switch it off with one dial code</li>
                 </ul>
-                <a href="https://frontlinepros.apexelement.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Visit FrontlinePros</a>
+                <a href="https://www.frontlinepros.ai" className="btn btn-primary" style={{width: '100%', display: 'block', textAlign: 'center', textDecoration: 'none'}} target="_blank" rel="noopener noreferrer">Visit FrontlinePros</a>
               </div>
             </div>
             <div className="product-card fade-in">
