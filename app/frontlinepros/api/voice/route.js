@@ -8,6 +8,7 @@
 import { selectOne, meter, TELEPHONY_USD } from '../../../../lib/fp/db';
 import { formParams, verifySignature, twiml, e164 } from '../../../../lib/fp/twilio';
 import { sendOpeningSms } from '../../../../lib/fp/chain';
+import { requestConsentAfterCall } from '../../../../lib/fp/onboarding';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -36,10 +37,22 @@ export async function POST(request) {
   const marketing = (process.env.FP_MARKETING_NUMBERS || '')
     .split(',').map((x) => x.trim()).filter(Boolean);
   if (marketing.includes(to)) {
+    // Ask permission by text before sending anything else. Off unless
+    // FP_CALL_CONSENT=1, because the campaign must declare this path first.
+    const consent = process.env.FP_CALL_CONSENT === '1';
+    if (consent) {
+      requestConsentAfterCall({ marketingNumber: to, from }).catch((e) =>
+        console.error('[fp] consent request failed', e.message)
+      );
+    }
     return say(
-      'Thanks for calling FrontlinePros. We answer our own phone, so leave it with us and ' +
-      'someone will call you straight back. If you would rather see it working right now, ' +
-      'visit frontline pros dot apex element dot A I. Thanks for calling.'
+      consent
+        ? 'Thanks for calling FrontlinePros. We are sending you a text right now to ask whether ' +
+          'you are happy for us to message you. Reply YES and we will take it from there. ' +
+          'Thanks for calling.'
+        : 'Thanks for calling FrontlinePros. We answer our own phone, so leave it with us and ' +
+          'someone will call you straight back. If you would rather see it working right now, ' +
+          'visit frontline pros dot apex element dot A I. Thanks for calling.'
     );
   }
 
