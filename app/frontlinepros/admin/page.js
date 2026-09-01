@@ -81,9 +81,9 @@ export default async function AdminPage() {
                 {!configured() && ' · Stripe not configured'}
               </p>
             </div>
-            <form action={`${base}/api/admin/auth`} method="post">
-              <a className="btn btn-ghost adminlogout" href={`${base}/admin?logout=1`}>Sign out</a>
-            </form>
+            <div className="subact">
+              <a className="btn btn-ghost adminlogout" href={`${base}/admin/tech`}>Tech &amp; data</a>
+            </div>
           </div>
 
           <div className="tiles">
@@ -129,6 +129,9 @@ export default async function AdminPage() {
           <AdminPanels base={base} pricing={pricing} guardrails={guardrails} protectedKeys={PROTECTED} />
 
           <h2 className="dash-h2">Every shop</h2>
+          <p className="panel-lead" style={{ fontSize: '14px', marginBottom: '12px' }}>
+            Click a shop to trace everything we hold on it, table by table.
+          </p>
           <div className="joblist">
             {shops.length === 0 && <p className="panel-lead muted">No shops yet.</p>}
             {shops.map((s) => {
@@ -139,7 +142,7 @@ export default async function AdminPage() {
               const cls = ['active', 'trialing'].includes(sub) ? 'on'
                         : sub === 'cancelling' || sub === 'past_due' ? 'warn' : 'off';
               return (
-                <div key={s.id} className="jobrow" style={{ cursor: 'default' }}>
+                <a key={s.id} className="jobrow" href={`${base}/admin/tech?shop=${s.id}`}>
                   <div className="jobrow-main">
                     <b>{s.business_name}</b>
                     <span>
@@ -153,7 +156,7 @@ export default async function AdminPage() {
                   <div className="jobrow-when">
                     {convs} calls · {jobs} cards · ${cost.toFixed(2)}
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
