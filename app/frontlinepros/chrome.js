@@ -10,11 +10,10 @@ export function Mast() {
           <b>
             Frontline<span>Pros</span>
           </b>
-          <em>by {brand.LEGAL_ENTITY}</em>
         </a>
         <nav>
           <a href={`${b}/#how`}>How it works</a>
-          <a href={`${b}/#offer`}>Founding offer</a>
+          <a href={`${b}/#pricing`}>Pricing</a>
           <a href={`tel:${brand.PHONE_E164}`} className="nav-cta">
             Call {brand.PHONE}
           </a>

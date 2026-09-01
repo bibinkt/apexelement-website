@@ -81,14 +81,14 @@ export default function FrontlinePros() {
         <div className="hero-veil" />
         <div className="shell hero-grid">
           <div className="hero-copy">
-            <div className="kicker">Missed-call textback for the trades</div>
-            <h1>The call you missed just texted you back.</h1>
+            <div className="kicker">An AI front desk for the trades</div>
+            <h1>You were under a sink. It answered anyway.</h1>
             <p className="lede">
-              When your phone rings and everyone&rsquo;s on a job, {brand.NAME} answers by text
-              within seconds &mdash; from a number that names your shop. It holds the conversation for you: what
-              broke, how long it&rsquo;s been going on, where they are, when they&rsquo;re free, and
-              a photo when one would help. Then it hands you a job card, before the customer has
-              called anyone else.
+              Every call you can&rsquo;t reach is a customer already dialling someone else.
+              {' '}{brand.NAME} picks it up for you within seconds &mdash; an AI assistant that
+              knows your trade, asks what a good technician would ask, reads the model number
+              off a photo, and quietly refuses to guess at anything it can&rsquo;t see. You come
+              off the job to a written work order, not a missed call.
             </p>
             <p className="hero-cta">
               <a href={`tel:${brand.PHONE_E164}`} className="btn">
@@ -116,8 +116,8 @@ export default function FrontlinePros() {
       <div className="trustbar">
         <div className="shell trustbar-in">
           <div>
-            <b>Built in Florida</b>
-            <span>Made here, for shops here.</span>
+            <b>It knows your trade</b>
+            <span>Different questions for HVAC and appliances.</span>
           </div>
           <div>
             <b>We answer our own phone</b>
@@ -328,33 +328,40 @@ export default function FrontlinePros() {
       </section>
 
       {/* ── OFFER ──────────────────────────────────────── */}
-      <section className="band" id="offer">
+      {/* ── PRICING ────────────────────────────────── */}
+      <section className="band" id="pricing">
         <div className="shell">
-          <h2>Founding member offer</h2>
-          <div className="offer-grid">
-            <div>
-              <h3>Five shops in Florida. Free for life.</h3>
-              <p>
-                In exchange you tell us what&rsquo;s wrong with it while we build it, and once
-                it&rsquo;s saved you five calls, you give us a short video saying so.
-              </p>
-              <p className="price">After that it&rsquo;s {brand.PRICE} a month. Setup is free.</p>
-              <p style={{ marginTop: '22px' }}>
-                <a href={`tel:${brand.PHONE_E164}`} className="btn">
-                  Call {brand.PHONE}
-                </a>
-              </p>
-            </div>
-            <div className="tally">
-              <div className="tally-head">Spots remaining</div>
-              <div className="tally-marks">
-                <span>|</span>
-                <span>|</span>
-                <span>|</span>
-                <span>|</span>
-                <span>|</span>
+          <h2>Pricing</h2>
+          <div className="planwrap">
+            <div className="plan">
+              <div className="plan-head">
+                <div className="plan-name">FrontlinePros</div>
+                <div className="plan-price">
+                  <b>$10</b>
+                  <span>per month</span>
+                </div>
+                <p className="plan-sub">
+                  Everything below. No contract, no setup fee, cancel from your dashboard
+                  whenever you like.
+                </p>
               </div>
-              <div className="tally-foot">5 of 5</div>
+              <ul className="plan-list">
+                <li>Your own local number, and every missed call answered within seconds</li>
+                <li>An AI assistant that knows your trade and asks what a technician would</li>
+                <li>Reads make, model and serial off a photo &mdash; and says so when it can&rsquo;t</li>
+                <li>Screens out the wrong numbers, the out-of-area jobs and the free-quote hunters</li>
+                <li>Flags gas, smoke and flooding straight to you, no questions asked</li>
+                <li>A written job card on your phone before you&rsquo;ve wiped your hands</li>
+                <li>Every conversation, transcript and photo kept in your dashboard</li>
+                <li>Analytics: what you rescued, when your phone rings out, what people call about</li>
+                <li>Keep your number and your carrier. Off again in one dial</li>
+              </ul>
+              <p className="plan-cta">
+                <a href={`${b}/subscribe`} className="btn">Start for {brand.PRICE} a month</a>
+              </p>
+              <p className="plan-fine">
+                You&rsquo;ll sign in with your mobile number &mdash; no password to remember.
+              </p>
             </div>
           </div>
         </div>
@@ -409,7 +416,7 @@ export default function FrontlinePros() {
         <div className="closer-veil" />
         <div className="shell">
           <h3>Stop losing the call you couldn&rsquo;t get to.</h3>
-          <p>Ten minutes to set up. Nothing to install. Five founding spots.</p>
+          <p>Ten minutes to set up. Nothing to install. Cancel any time.</p>
           <p>
             <a href={`tel:${brand.PHONE_E164}`} className="btn">
               Call {brand.PHONE}

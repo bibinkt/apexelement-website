@@ -831,7 +831,7 @@
   /* hero: the phone is the pitch, but it does not need to be 700px tall */
   .rw .hero-grid { padding: 30px 24px 34px; gap: 26px; }
   .rw .hero h1 { font-size: 29px; margin-bottom: 14px; }
-  .rw .device { max-width: 260px; margin: 0 auto; }
+  .rw .device { margin: 0 auto; }
   .rw .device-screen { min-height: 380px; }
   .rw .device-cap { font-size: 11px; }
   .rw .trust { margin-top: 22px; padding-top: 12px; }
@@ -1031,3 +1031,88 @@
 }
 .rw .wiz-why { font-size: 13px; color: var(--muted); margin-top: 14px; max-width: 44ch;
   margin-left: auto; margin-right: auto; }
+
+/* ── pricing ───────────────────────────────────────────── */
+.rw .planwrap { display: flex; justify-content: center; }
+.rw .plan {
+  border: 1px solid var(--rule-2); background: #fff; padding: 34px 34px 30px;
+  max-width: 560px; width: 100%;
+}
+.rw .plan-name {
+  font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 14px;
+}
+.rw .plan-price { display: flex; align-items: baseline; gap: 9px; margin-bottom: 12px; }
+.rw .plan-price b { font-size: 54px; line-height: 1; letter-spacing: -.04em; color: var(--ink); }
+.rw .plan-price span { font-size: 15px; color: var(--muted); }
+.rw .plan-sub { font-size: 15.5px; color: var(--body); margin-bottom: 24px; max-width: 44ch; }
+.rw .plan-list { list-style: none; border-top: 1px solid var(--rule); }
+.rw .plan-list li {
+  position: relative; padding: 11px 0 11px 28px; border-bottom: 1px solid var(--rule);
+  font-size: 15px; color: var(--body); line-height: 1.5;
+}
+.rw .plan-list li::before {
+  content: "✓"; position: absolute; left: 4px; top: 11px; color: var(--accent); font-weight: 700;
+}
+.rw .plan-cta { margin: 26px 0 0; }
+.rw .plan-cta .btn { width: 100%; text-align: center; padding: 16px 24px; }
+.rw .plan-fine { font-size: 13px; color: var(--muted); margin: 12px 0 0; text-align: center; }
+
+/* ── mobile phone mockup: it was too narrow to read ────── */
+@media (max-width: 700px) {
+  .rw .device { max-width: 330px; }
+  .rw .bub { font-size: 14.5px; padding: 9px 12px; }
+  .rw .convo-id { font-size: 14px; }
+  .rw .plan { padding: 26px 22px 24px; }
+  .rw .plan-price b { font-size: 44px; }
+}
+@media (max-width: 400px) {
+  .rw .device { max-width: 300px; }
+}
+
+/* ── phone-number login ────────────────────────────────── */
+.rw .phonewrap { display: flex; align-items: stretch; border: 1px solid var(--rule-2); background: #fff; }
+.rw .phoneprefix {
+  display: flex; align-items: center; padding: 0 14px; background: var(--band);
+  border-right: 1px solid var(--rule-2); font-size: 17px; color: var(--muted); font-weight: 600;
+}
+.rw .phoneinput { border: 0 !important; flex: 1; font-size: 18px; padding: 15px 14px;
+  letter-spacing: .01em; min-width: 0; }
+.rw .phoneinput:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+.rw .codeinput {
+  width: 100%; padding: 15px 16px; font-size: 30px; letter-spacing: .34em; text-align: center;
+  font-variant-numeric: tabular-nums; border: 1px solid var(--rule-2); background: #fff; color: var(--ink);
+}
+.rw .codeinput:focus { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* ── subscription state on the dashboard ───────────────── */
+.rw .subbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  border: 1px solid var(--rule); background: #fff; padding: 15px 18px; margin-bottom: 20px;
+}
+.rw .subbar b { font-size: 15px; color: var(--ink); }
+.rw .subbar span { font-size: 13.5px; color: var(--muted); display: block; margin-top: 2px; }
+.rw .subbar .btn { padding: 9px 16px; font-size: 13.5px; }
+.rw .sub-pill {
+  font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700;
+  padding: 4px 10px; border: 1px solid var(--rule-2); background: var(--band); color: var(--muted);
+}
+.rw .sub-pill.on { background: #e8f0e8; border-color: #b9d3bd; color: #1e4527; }
+.rw .sub-pill.warn { background: #fbf3e2; border-color: #d9c48c; color: #6b5209; }
+.rw .sub-pill.off { background: #f8e5e0; border-color: #d9a08c; color: #7a2a10; }
+
+/* ── profile completion ────────────────────────────────── */
+.rw .profile {
+  border: 1px solid var(--rule); background: #fff; padding: 18px 20px; margin-bottom: 20px;
+}
+.rw .profile-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.rw .profile-head b { font-size: 15.5px; }
+.rw .profile-pct { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rw .profile-bar { height: 4px; background: var(--band); margin: 11px 0 12px; }
+.rw .profile-fill { height: 100%; background: var(--accent); transition: width .4s ease; }
+.rw .profile-miss { display: flex; flex-wrap: wrap; gap: 6px; }
+.rw .profile-miss a {
+  font-size: 12.5px; padding: 5px 11px; border: 1px solid var(--rule-2);
+  background: var(--band); color: var(--ink-2);
+}
+.rw .profile-miss a:hover { background: var(--ink); color: var(--paper); text-decoration: none; }

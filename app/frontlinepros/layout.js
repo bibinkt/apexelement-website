@@ -2,14 +2,17 @@ import { brand } from './brand';
 import './fp.css';
 
 const SITE = 'https://frontlinepros.apexelement.ai';
-const TITLE = `${brand.NAME} — The call you missed just texted you back`;
+const TITLE = `${brand.NAME} — An AI front desk for the trades`;
 const DESC =
-  'Missed-call textback for appliance repair, HVAC and plumbing shops. When nobody can ' +
-  'answer, we text the caller back from a number that names your shop, find out what is ' +
-  'wrong, screen the job, and send you a job card.';
+  'An AI assistant that answers the calls your shop can\'t reach. It knows your trade, asks ' +
+  'what a good technician would ask, reads the model number off a photo, and hands you a written ' +
+  'job card — for appliance repair, HVAC and plumbing shops. $10 a month, cancel any time.';
 
 export const metadata = {
   metadataBase: new URL(SITE),
+  // FP mark: F in cream, P in the accent. The apex site's lightning bolt was
+  // being inherited here, which is the wrong product entirely.
+  icons: { icon: [{ url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%2315150e'/><text x='32' y='45' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle'><tspan fill='%23fcfbf7'>F</tspan><tspan fill='%23e2703f'>P</tspan></text></svg>", type: 'image/svg+xml' }] },
   title: {
     default: TITLE,
     // Child pages set their own title; this keeps the brand on the end of it.
