@@ -1122,3 +1122,40 @@
   background: var(--band); color: var(--ink-2);
 }
 .rw .profile-miss a:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+
+/* ── admin ─────────────────────────────────────────────── */
+.rw .adminbar { display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 18px; flex-wrap: wrap; margin-bottom: 26px; }
+.rw .adminlogout { padding: 9px 16px; font-size: 13.5px; }
+.rw .pricerow { display: flex; align-items: stretch; gap: 10px; }
+.rw .pricecur { display: flex; align-items: center; font-size: 22px; color: var(--muted); }
+.rw .pricerow .wiz-input { max-width: 140px; margin: 0; font-variant-numeric: tabular-nums; }
+.rw .railrow { display: flex; justify-content: space-between; align-items: center; gap: 14px;
+  padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.rw .railrow label { margin: 0; text-transform: none; letter-spacing: 0; font-size: 14.5px;
+  color: var(--body); font-weight: 400; }
+.rw .railrow input { width: 96px; padding: 8px 10px; font-size: 15px; text-align: right;
+  font-variant-numeric: tabular-nums; }
+.rw .railtoggle { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+  padding: 13px 0; border-bottom: 1px solid var(--rule); }
+.rw .railtoggle b { display: block; font-size: 14.5px; color: var(--ink); }
+.rw .railtoggle span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 3px;
+  max-width: 42ch; line-height: 1.45; }
+.rw .switch { flex: 0 0 auto; font: inherit; font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; font-weight: 700; padding: 7px 12px; cursor: pointer;
+  border: 1px solid #d9a08c; background: #f8e5e0; color: #7a2a10; }
+.rw .switch.on { border-color: #b9d3bd; background: #e8f0e8; color: #1e4527; }
+.rw .btn.danger { background: #9c3616; border-color: #9c3616; color: #fff; }
+.rw .btn.danger:hover { background: #7d2a0e; border-color: #7d2a0e; }
+.rw .confirmwrap { position: fixed; inset: 0; background: rgba(10,10,7,.72); z-index: 90;
+  display: flex; align-items: center; justify-content: center; padding: 24px; }
+.rw .confirmbox { background: var(--paper); border: 1px solid var(--rule-2); max-width: 520px;
+  width: 100%; padding: 28px; }
+.rw .confirmbox h3 { font-size: 22px; margin-bottom: 12px; }
+.rw .confirmbox ul { margin: 12px 0 0 20px; }
+.rw .confirmbox li { font-size: 14.5px; color: var(--body); margin-bottom: 7px; }
+.rw .confirmfine { font-size: 13px; color: var(--muted); margin-top: 16px; }
+.rw .confirmact { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+@media (prefers-color-scheme: dark) {
+  .rw:not([data-theme="light"]) .confirmbox { background: #1c1a11; }
+}
