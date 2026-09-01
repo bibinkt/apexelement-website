@@ -13,7 +13,7 @@ import { NextResponse } from 'next/server';
 
 const OLD_HOST = 'frontlinepros';
 const OLD_PATH = '/frontlinepros';
-const NEW_ORIGIN = 'https://frontlinepros.ai';
+const NEW_ORIGIN = 'https://www.frontlinepros.ai';
 
 export function middleware(request) {
   const host = (request.headers.get('host') || '').toLowerCase();
