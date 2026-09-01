@@ -58,10 +58,16 @@ export async function POST(request) {
     `We are texting you this second, so just tell us what is going wrong and we will take it ` +
     `from there. Speak soon.`;
 
-  // Fire the SMS without blocking the TwiML response.
-  sendOpeningSms(shop, from, params.CallSid).catch((e) =>
-    console.error('[fp] opening sms failed', e.message)
-  );
+  // Await it. Fire-and-forget looks tempting here, but this runs on serverless:
+  // the moment we return the TwiML the function is torn down and an in-flight
+  // promise is killed, so the caller hears the greeting and never gets a text.
+  // The send is one API call and the greeting takes several seconds to speak,
+  // so the caller notices nothing.
+  try {
+    await sendOpeningSms(shop, from, params.CallSid);
+  } catch (e) {
+    console.error('[fp] opening sms failed', e.message);
+  }
 
   return say(greeting);
 }
